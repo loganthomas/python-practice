@@ -11,8 +11,8 @@ def letter_counter(word, letter):
     Count number of times a give letter occurs in a given word.
 
     Args:
-        word   - string
-        letter - string of length 1
+        word (str): Word provided in which to count letter
+        letter (str): Letter provided to count in word. Of length 1.
 
     Returns:
         count - int representing number of times a give letter occurs

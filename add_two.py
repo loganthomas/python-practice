@@ -9,11 +9,11 @@ def add_two(a, b):
     Add two numbers together.
 
     Args:
-       a - int or float number
-       b - int or float number
+       a (int or float): First number.
+       b (int or float): Second number.
 
     Returns:
-        added - int or float sum of a and b
+        added (int or float): Sum of a and b.
     """
     # Check both input values are either an float or integer
     if type(a) not in (float, int):

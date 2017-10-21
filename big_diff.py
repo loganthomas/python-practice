@@ -12,7 +12,7 @@ def find_range(nums):
     Args:
         nums (list): List of integers.
 
-    Return:
+    Returns:
         range (int): The highest value in the provided list minus
                      the lowest value in the provided list.
     """
