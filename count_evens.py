@@ -1,19 +1,34 @@
-#Return the number of even ints in the given array
+"""
+Practice Problem:
+
+Write a function that will return the number of even
+numbers in a provided array.
+"""
+
 
 def count_evens(nums):
-    count=0
-    for a in nums:
-        if a % 2==0:
-            count=count+1
-    return count
+    """
+    Count number of even numbers within a provided list or array.
 
-integers=list()
-inputs = raw_input("Please enter integer list seperated by a comma:")
-numbers = inputs.split(',')
-for x in numbers:
-    x=int(x)
-    integers.append(x)
-print integers
+    Args
+        nums (list or array): Provided numbers to consider.
 
-evens = count_evens(integers)
-print "Number of even integers:",evens
+    Returns
+        cnt (int): Number of evens in provided list/array of numbers.
+    """
+    cnt = sum([1 for num in nums if num % 2 == 0])
+    return cnt
+
+
+if __name__ == '__main__':
+
+    import numpy as np
+
+    x = [1, 2, 3]
+    y = np.array([2, 4, 6])
+
+    cnt_x = count_evens(x)
+    cnt_y = count_evens(y)
+
+    print('There are {} even numbers in {}'.format(cnt_x, x))
+    print('There are {} even numbers in {}'.format(cnt_y, y))
