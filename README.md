@@ -4,6 +4,3 @@ These are a number of practice problems I have compiled over the years to teach 
 
 This is a test from dad.
 
-def func (x,y):
-	"""this is a func"""
-	return x+y
