@@ -15,20 +15,21 @@ def add_two(a, b):
     Returns:
         added (int or float): Sum of a and b.
     """
-    # Check both input values are either an float or integer
-    if type(a) not in (float, int):
-        raise TypeError('Enter a valid integer or float for first variable')
-    if type(b) not in (float, int):
-        raise TypeError('Enter a valid float or integer for second variable')
+    # Add numbers together if possible
+    try:
+        float_a = float(a)
+        float_b = float(b)
+        return float_a + float_b
 
-    # Add two given values together
-    added = a + b
-
-    return added
+    # Catch error if not able to add
+    except Exception as e:
+        print(e)
 
 
 if __name__ == '__main__':
-    val1 = float(input('Enter value 1: '))
-    val2 = float(input('Enter value 2: '))
+    val1 = input('Enter value 1: ')
+    val2 = input('Enter value 2: ')
     added = add_two(val1, val2)
-    print('{} plus {} is {}'.format(val1, val2, added))
+    if added:
+        print('{} plus {} is {}'.format(val1, val2, added))
+
