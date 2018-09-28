@@ -46,13 +46,53 @@ day2_puzzle.txt
 
 Answer:
     Part 1: 41887
-    Part 2:
+    Part 2: 226?
 """
 
 import numpy as np
 
+
+# Part 1 Solution
+def captcha1(data):
+    """ Assumes data is np.array """
+    # Max of each row
+    maxes = data.max(axis=1)
+
+    # Mins of each row
+    mins = data.min(axis=1)
+
+    checksum = sum(maxes - mins)
+    return checksum
+
+
+# Part 2 Solution
+def captcha2(data):
+    """ Assumes data i np.array """
+    out = []
+    for row in data:
+        sort = sorted(row, reverse=True)
+
+        for n in sort:
+            idx = sort.index(n)
+            comps = sort[idx + 1:]
+
+            for c in comps:
+                if n % c == 0:
+                    out.append(n / c)
+
+    return sum(out)
+
+
+# Part 1 Testing
+test_data1 = np.array( [[5,1,9,5], [7,5,3,4], [2,4,6,8]] )
+assert captcha1(test_data1) == 18, 'Wrong'
+
+# Part 2 Testing
+test_data2 = np.array( [[5,9,2,8], [9,4,7,3], [3,8,6,5]] )
+assert captcha2(test_data2) == 9, 'Wrong'
+
+# Read in Puzzle and Check Solution
 data = np.loadtxt('day2_puzzle.txt')
-maxes = data.max(axis=1)
-mins  = data.min(axis=1)
-checksum = sum(maxes-mins)
+
+assert captcha1(data) == 41887
 
