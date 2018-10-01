@@ -46,7 +46,7 @@ day2_puzzle.txt
 
 Answer:
     Part 1: 41887
-    Part 2: 226?
+    Part 2: 226
 """
 
 import numpy as np
