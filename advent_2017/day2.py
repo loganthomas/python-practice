@@ -95,4 +95,5 @@ assert captcha2(test_data2) == 9, 'Wrong'
 data = np.loadtxt('day2_puzzle.txt')
 
 assert captcha1(data) == 41887
+assert captcha2(data) == 226
 
