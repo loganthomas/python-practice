@@ -35,6 +35,6 @@ for i, row in enumerate(data):
     else:
         print(i)
 
-# without explicit for loop
+## without explicit for loop
 sum([1 for row in data if len(row.split()) == len(set(row.split()))])
 
