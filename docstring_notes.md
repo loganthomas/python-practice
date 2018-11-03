@@ -1,5 +1,5 @@
 # Personal Python Docstring notes
-> A set of notes I have compiled pertaining to docstring formatting. 
+> A set of notes I have compiled pertaining to docstring formatting.   
 > I find following the concepts laid out in [Google Style Python Docstrings](https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_google.html) and
 [PEP 257](https://www.python.org/dev/peps/pep-0257/) most appealing.  
 > I am __not__ claiming to be the author of these ideas, just compiling them for my personal benefit. 
@@ -16,12 +16,14 @@
 
 - Multi-line Docstrings
   - Consist of a __summary line__, followed by a blank line, followed by a more elaborate description.
-    - It is important that the summary line fits on one line and is separate from the rest of the docstring by a blank line.
-    - The summary line may be on the same line as the opening quotes or on the next line (I prefer to use the next line).  
+    - Summary line should fit on one line and be separated from the rest of the docstring by a blank line.
+    - Summary line can be on the same line as the opening quotes or on the next line (I prefer to use the next line).  
   - Insert a blank line after all docstrings (one-line or multi-line) that document a __class__. Generally speaking, the class's methods are separated from each 
   other by a single blank line, and the docstring needs to be offset from the first method by a blank line.
   - The docstring for a __function__ or __method__ should summarize its behavior and document its arguments, return value(s), side effects, exceptions raised, 
-  and restrictions on when it can be called (all if applicable). _Optional arguments should be indicated._ It is best to list each argument on a separate line. 
+  and restrictions on when it can be called (all if applicable).
+    - Optional arguments should be indicated.
+    - It is best to list each argument on a separate line. 
  
 
 ## Google Style Python Docstring notes
