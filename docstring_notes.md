@@ -6,7 +6,7 @@
 
 
 ## PEP 257 notes
-- For flowing long blocks of text with fewer structural restrictions (docstrings or comments), the line length should be limited to _72 characters_ (PEP 8).
+- For flowing long blocks of text with fewer structural restrictions (docstrings or comments), the line length should be limited to __72 characters__ (PEP 8).
 - For consistency, always use `"""triple double quotes"""` around docstrings.
 - Use `r"""raw triple double quotes"""` if you use any backslashes in your docstrings.
 
@@ -31,7 +31,7 @@
 ## Google Style Python Docstring notes
 
 ```python
-def module_level_function(param1, param2=None, *args, **kwargs):
+def module_level_function(param1, param2, param3=None, *args, **kwargs):
     """
     Example of a module level function.
 
@@ -51,7 +51,8 @@ def module_level_function(param1, param2=None, *args, **kwargs):
 
     Args:
 	param1 (int): The first parameter.
-	param2 (:obj:`str`, optional): The second parameter. Defaultes to None.
+        param2 (:obj:`list` of :obj:`str`): The second parameter.
+	param3 (:obj:`str`, optional): The third parameter. Defaultes to None.
 	    Second line of description should be indented.
 	*args: Variable length argument list.
 	**kwargs: Arbitrary keyword arguments.
