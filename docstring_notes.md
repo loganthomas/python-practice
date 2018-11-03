@@ -4,9 +4,11 @@
 [PEP 257](https://www.python.org/dev/peps/pep-0257/) most appealing.  
 > I am __not__ claiming to be the author of these ideas, just compiling them for my personal benefit. 
 
+
 ## PEP 257 notes
+- For flowing long blocks of text with fewer structural restrictions (docstrings or comments), the line length should be limited to _72 characters_ (PEP 8).
 - For consistency, always use `"""triple double quotes"""` around docstrings.
-  - Use `r"""raw triple double quotes"""` if you use any backslashes in your docstrings.
+- Use `r"""raw triple double quotes"""` if you use any backslashes in your docstrings.
 
 - One-line Docstrings
   - Triple quotes are used even though the string fits on one line.
@@ -27,4 +29,67 @@
  
 
 ## Google Style Python Docstring notes
-  
+
+```python
+def module_level_function(param1, param2=None, *args, **kwargs):
+    """
+    Example of a module level function.
+
+    Function parameters should be documented in the Args section. The name
+    of each parameter is required. The type and description of each paramter
+    is optional, but should be included if not obvious.
+
+    If *args or **kwargs are accepted, they should be listed as such.
+
+    The format for a parameter is:
+    	name (type): description
+	    The description may span multiple lines. Following
+	    lines should be indented. The "(type)" is optional.
+
+	    Multiple paragraphs are supported in parameter
+	    descriptions.
+
+    Args:
+	param1 (int): The first parameter.
+	param2 (:obj:`str`, optional): The second parameter. Defaultes to None.
+	    Second line of description should be indented.
+	*args: Variable length argument list.
+	**kwargs: Arbitrary keyword arguments.
+
+    Returns:
+    	bool: The return value. True for success, False otherwise.
+
+    Raises:
+        AttributeError: The Raises section is a list of all exceptions
+	    that are relevant to the interface.
+	ValueError: If `param2` is equal to `param1`.
+    """
+    if param1 == param2:
+        raise ValueError('param1 may not be eqaul to param2')
+    return True
+``` 
+
+
+```python
+def example_generator(n):
+    """
+    Generators have a ``Yields`` section instead of a ``Returns`` section.
+
+    Args:
+        n (int): The upper limit of the range to generate, from 0 to `n` - 1.
+
+    Yields:
+        int: The next number in the range of 0 to `n` - 1.
+
+    Examples:
+        Examples should be written in doctest format, and should illustrate how
+        to use the function.
+
+        >>> print([i for i in example_generator(4)])
+        [0, 1, 2, 3]
+
+    """
+    for i in range(n):
+        yield i
+```
+ 
