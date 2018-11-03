@@ -31,7 +31,7 @@
 ## Google Style Python Docstring notes
 
 ```python
-def module_level_function(param1, param2, param3=None, *args, **kwargs):
+def module_level_function(param1, param2, param3, param4=None, *args, **kwargs):
     """
     Example of a module level function.
 
@@ -52,7 +52,8 @@ def module_level_function(param1, param2, param3=None, *args, **kwargs):
     Args:
 	param1 (int): The first parameter.
         param2 (:obj:`list` of :obj:`str`): The second parameter.
-	param3 (:obj:`str`, optional): The third parameter. Defaultes to None.
+        param3 (:obj:`ndarray` of :obj:`float`): 2D array containing data with `float` type.
+	param4 (:obj:`str`, optional): The third parameter. Defaultes to None.
 	    Second line of description should be indented.
 	*args: Variable length argument list.
 	**kwargs: Arbitrary keyword arguments.
