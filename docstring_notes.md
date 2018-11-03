@@ -29,6 +29,12 @@
  
 
 ## Google Style Python Docstring notes
+> There are a few recommended ways to list argument types when working with Sphinx and the
+extension napoleon (example `param2 (:obj:`list` of :obj:`str`)`.  
+> I prefer a simpler version as I don't use Sphinx at this point in time (example 
+`param2 (list of str)`).  
+> See `Args` section of below function.
+
 
 ```python
 def module_level_function(param1, param2, param3, param4=None, *args, **kwargs):
@@ -36,7 +42,7 @@ def module_level_function(param1, param2, param3, param4=None, *args, **kwargs):
     Example of a module level function.
 
     Function parameters should be documented in the Args section. The name
-    of each parameter is required. The type and description of each paramter
+    of each parameter is required. The type and description of each parameter
     is optional, but should be included if not obvious.
 
     If *args or **kwargs are accepted, they should be listed as such.
@@ -50,12 +56,24 @@ def module_level_function(param1, param2, param3, param4=None, *args, **kwargs):
 	    descriptions.
 
     Args:
+	The below (type) descriptions are recommended to use when
+	working with Sphinx and napoleon. I prefer to use my own
+	version that slightly modifies this
+
 	param1 (int): The first parameter.
         param2 (:obj:`list` of :obj:`str`): The second parameter.
-        param3 (:obj:`ndarray` of :obj:`float`): 2D array containing data with `float` type.
-	param4 (:obj:`str`, optional): The third parameter. Defaultes to None.
+        param3 (:obj:`ndarray` of :obj:`float`): The third parameter. 
+	param4 (:obj:`str`, optional): The forth parameter. Defaults to None.
 	    Second line of description should be indented.
 	*args: Variable length argument list.
+	**kwargs: Arbitrary keyword arguments.
+
+	My personal flavor
+	param1 (int): The first parameter.
+	param2 (list of str): The second parameter
+	param3 (ndarray): 2D array containing data with `float` type.
+	param4 (str, optional): The fourth parameter. Defaults to None.
+	*args: Varaiable length argument list.
 	**kwargs: Arbitrary keyword arguments.
 
     Returns:
@@ -67,7 +85,7 @@ def module_level_function(param1, param2, param3, param4=None, *args, **kwargs):
 	ValueError: If `param2` is equal to `param1`.
     """
     if param1 == param2:
-        raise ValueError('param1 may not be eqaul to param2')
+        raise ValueError('param1 may not be equal to param2')
     return True
 ``` 
 
