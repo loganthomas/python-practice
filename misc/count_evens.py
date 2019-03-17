@@ -1,6 +1,5 @@
 """
 Practice Problem:
-
 Write a function that will return the number of even
 numbers in a provided array.
 """
