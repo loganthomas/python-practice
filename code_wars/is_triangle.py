@@ -10,14 +10,10 @@ false in any other case.
 def is_triangle(a, b, c):
 
     # Sort to ensure largest side last
-    sorted_lengths = sorted([a,b,c])
+    a, b, c = sorted([a, b, c])
 
-    # Pop will grab last entry in list and remove it
-    # (in this case max)
-    max_length = sorted_lengths.pop()
-
-    # triangle inequality theorem
-    return sum(sorted_lengths) > max_length
+    # triangle inequality theorem (with sorted)
+    return a + b > c
 
 
 if __name__ == '__main__':
