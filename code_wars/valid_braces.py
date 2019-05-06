@@ -23,9 +23,7 @@ Examples
 def validBraces(string):
     while '()' in string or '[]' in string or '{}' in string:
         string = string.replace('()', '').replace('[]', '').replace('{}', '')
-    if string:
-        return False
-    return True
+    return string == ''
 
 
 if __name__ == '__main__':
