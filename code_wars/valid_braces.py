@@ -26,20 +26,47 @@ def validBraces(string):
     return string == ''
 
 
+def validBraces2(string):
+    """ Another solution possibility. """
+    braces = {"(": ")", "[": "]", "{": "}"}
+    stack = []
+    for character in string:
+        if character in braces.keys():
+            stack.append(character)
+        else:
+            if len(stack) == 0 or braces[stack.pop()] != character:
+                return False
+    return len(stack) == 0
+
+
 if __name__ == '__main__':
     """ Simple tests. Consider refactoring with pytest later. """
-    assert validBraces( '()' )             is True, "fails for '()'"
-    assert validBraces( '[]' )             is True, "fails for '[]'"
-    assert validBraces( '{}' )             is True, "fails for '{}'"
-    assert validBraces( '()' )             is True, "fails for '()'"
-    assert validBraces( '{}()[]' )         is True, "fails for '{}()[]'"
-    assert validBraces( '([{}])' )         is True, "fails for '([{}])'"
-    assert validBraces( '{}({})[]' )       is True, "fails for '{}({})[]'"
-    assert validBraces( '(({{[[]]}}))' )   is True, "fails for '(({{[[]]}}))'"
-    assert validBraces( '[(])' )           is False, "fails for '[(])'"
-    assert validBraces( '()[}[]{}' )       is False, "fails for '()[}[]{}'"
-    assert validBraces( '(([[))]]' )       is False, "fails for '(([[))]]'"
-    assert validBraces( '(([[{{}}]])){)' ) is False, "fails for '(([[{{}}]])){)'"
+    assert validBraces( '()' )             is True , "validBraces fails for '()'"
+    assert validBraces( '[]' )             is True , "validBraces fails for '[]'"
+    assert validBraces( '{}' )             is True , "validBraces fails for '{}'"
+    assert validBraces( '()' )             is True , "validBraces fails for '()'"
+    assert validBraces( '{}()[]' )         is True , "validBraces fails for '{}()[]'"
+    assert validBraces( '([{}])' )         is True , "validBraces fails for '([{}])'"
+    assert validBraces( '{}({})[]' )       is True , "validBraces fails for '{}({})[]'"
+    assert validBraces( '(({{[[]]}}))' )   is True , "validBraces fails for '(({{[[]]}}))'"
+    assert validBraces( '[(])' )           is False, "validBraces fails for '[(])'"
+    assert validBraces( '()[}[]{}' )       is False, "validBraces fails for '()[}[]{}'"
+    assert validBraces( '(([[))]]' )       is False, "validBraces fails for '(([[))]]'"
+    assert validBraces( '(([[{{}}]])){)' ) is False, "validBraces fails for '(([[{{}}]])){)'"
+
+    # For solution 2
+    assert validBraces2( '()' )             is True , "validBraces2 fails for '()'"
+    assert validBraces2( '[]' )             is True , "validBraces2 fails for '[]'"
+    assert validBraces2( '{}' )             is True , "validBraces2 fails for '{}'"
+    assert validBraces2( '()' )             is True , "validBraces2 fails for '()'"
+    assert validBraces2( '{}()[]' )         is True , "validBraces2 fails for '{}()[]'"
+    assert validBraces2( '([{}])' )         is True , "validBraces2 fails for '([{}])'"
+    assert validBraces2( '{}({})[]' )       is True , "validBraces2 fails for '{}({})[]'"
+    assert validBraces2( '(({{[[]]}}))' )   is True , "validBraces2 fails for '(({{[[]]}}))'"
+    assert validBraces2( '[(])' )           is False, "validBraces2 fails for '[(])'"
+    assert validBraces2( '()[}[]{}' )       is False, "validBraces2 fails for '()[}[]{}'"
+    assert validBraces2( '(([[))]]' )       is False, "validBraces2 fails for '(([[))]]'"
+    assert validBraces2( '(([[{{}}]])){)' ) is False, "validBraces2 fails for '(([[{{}}]])){)'"
 
     # Assuming asserts are never skipped/ignored
     print('Great Success!')
