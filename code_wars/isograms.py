@@ -19,12 +19,13 @@ def is_isogram(string):
 
 if __name__ == '__main__':
     """ Simple tests. Consider refactoring with pytest later. """
-    assert is_isogram("Dermatoglyphics") is True, "fails for Dermatoglyphics"
-    assert is_isogram("isogram")         is True, "fails for isogram"
+    assert is_isogram("Dermatoglyphics") is True , "fails for Dermatoglyphics"
+    assert is_isogram("isogram")         is True , "fails for isogram"
     assert is_isogram("aba")             is False, "fails for aba"
     assert is_isogram("moOse")           is False, "fails for moOse"
     assert is_isogram("isIsogram")       is False, "fails for isIsogram"
     assert is_isogram("")                is True , "fails for empty string"
+
     # Assuming asserts are never skipped/ignored
     print('Great Success!')
 
