@@ -72,6 +72,15 @@ def backwardsPrime(start, stop):
 
     return out
 
+# A provided solution that mimics the initial commit... a little slower compared to above
+# I was close with initial commit!
+def _is_prime2(n):
+    return all([n % i != 0 for i in range(2,int(n**.5)+1)])
+
+
+def backwardsPrime2(start, nd):
+    return [i for i in range(start,nd+1) if i != int(str(i)[::-1]) and _is_prime(i) and _is_prime(int(str(i)[::-1]))]
+
 
 if __name__ == '__main__':
     """ Simple tests. Consider refactoring with pytest later. """
@@ -93,7 +102,7 @@ if __name__ == '__main__':
         "fails for start=7000, stop=7100")
 
     print('test 5: start=7000, stop=70245)')
-    assert backwardsPrime(70000, 70245) == [70001, 70009, 70061, 70079, 70121, 70141, 70163, 70241], (
+    assert backwardsPrime(70000, 70245) == [70001, 70009, 70061, 70079, 70121, 70141, 70163, 70241],(
         "fails for start=7000, stop=70245)")
 
     print('test 6: start=70485, stop=70485)')
@@ -113,7 +122,7 @@ if __name__ == '__main__':
         "fails for start=1095000, stop=1095403)")
 
     print('test 10: start=100, stop=403)')
-    assert backwardsPrime(100, 403) == [107, 113, 149, 157, 167, 179, 199, 311, 337, 347, 359, 389], (
+    assert backwardsPrime(100, 403) == [107, 113, 149, 157, 167, 179, 199, 311, 337, 347, 359, 389],(
         "fails for start=100, stop=403)")
 
     print('test 11: start=400, stop=503)')
