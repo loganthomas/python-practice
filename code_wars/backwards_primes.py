@@ -20,7 +20,7 @@ backwardsPrime(9900, 10000) => [9923, 9931, 9941, 9967]
 backwardsPrime(501, 599)    => []
 
 Notes:
-- The original code (1 commit back) worked for a few small tests. However, was not efficient
+- The initial commit worked for a few small tests. However, was not efficient
   and took too long to execute for larger number ranges.
 - The new solution was adopted from the below sites
   https://www.geeksforgeeks.org/python-program-to-check-whether-a-number-is-prime-or-not/
@@ -75,12 +75,66 @@ def backwardsPrime(start, stop):
 
 if __name__ == '__main__':
     """ Simple tests. Consider refactoring with pytest later. """
-    assert backwardsPrime(2, 100)      == [13, 17, 31, 37, 71, 73, 79, 97], (
+
+    print('test 1: start=2, stop=100')
+    assert backwardsPrime(2, 100) == [13, 17, 31, 37, 71, 73, 79, 97], (
         "fails for start=2, stop=100")
+
+    print('test 2: start=9900, stop=10000"')
     assert backwardsPrime(9900, 10000) == [9923, 9931, 9941, 9967], (
         "fails for start=9900, stop=10000")
-    assert backwardsPrime(501, 599)    == [], (
+
+    print('test 3: start=501, stop=599"')
+    assert backwardsPrime(501, 599) == [], (
         "fails for start=501, stop=599")
+
+    print('test 4: start=7000, stop=7100')
+    assert backwardsPrime(7000, 7100) == [7027, 7043, 7057], (
+        "fails for start=7000, stop=7100")
+
+    print('test 5: start=7000, stop=70245)')
+    assert backwardsPrime(70000, 70245) == [70001, 70009, 70061, 70079, 70121, 70141, 70163, 70241], (
+        "fails for start=7000, stop=70245)")
+
+    print('test 6: start=70485, stop=70485)')
+    assert backwardsPrime(70485, 70600) == [70489, 70529, 70573, 70589], (
+        "fails for start=70485, stop=70485)")
+
+    print('test 7: start=60000, stop=70000)')
+    assert backwardsPrime(60000, 70000) == [], (
+        "fails for start=60000, stop=70000)")
+
+    print('test 8: start=109500, stop=109700)')
+    assert backwardsPrime(109500, 109700) == [109537, 109579, 109583, 109609, 109663], (
+        "fails for start=109500, stop=109700)")
+
+    print('test 9: start=1095000, stop=1095403)')
+    assert backwardsPrime(1095000, 1095403) == [1095047, 1095209, 1095319, 1095403], (
+        "fails for start=1095000, stop=1095403)")
+
+    print('test 10: start=100, stop=403)')
+    assert backwardsPrime(100, 403) == [107, 113, 149, 157, 167, 179, 199, 311, 337, 347, 359, 389], (
+        "fails for start=100, stop=403)")
+
+    print('test 11: start=400, stop=503)')
+    assert backwardsPrime(400, 503) == [], (
+        "fails for start=400, stop=503)")
+
+    print('test 12: start=7048500, stop=7048600)')
+    assert backwardsPrime(7048500, 7048600) == [7048519, 7048579], (
+        "fails for start=7048500, stop=7048600)")
+
+    print('test 13: start=1048500, stop=1048600)')
+    assert backwardsPrime(1048500, 1048600) == [1048571, 1048583], (
+        "fails for start=1048500, stop=1048600)")
+
+    print('test 14: start=1000001, stop=1000100)')
+    assert backwardsPrime(1000001, 1000100) == [1000033, 1000037, 1000039], (
+        "fails for start=1000001, stop=1000100)")
+
+    print('test 15: start=700000008, stop=700000050)')
+    assert backwardsPrime(700000008, 700000050) == [700000031], (
+        "fails for start=700000008, stop=700000050)")
 
     # Assuming asserts are never skipped/ignored
     print('Great Success!')
