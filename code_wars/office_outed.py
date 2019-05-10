@@ -17,21 +17,9 @@ Note that your boss is in the room (boss), their score is worth double it's face
 (but they are still just one person!).
 """
 
-import numpy as np
-
 
 def outed(meet, boss):
-
-    # Boss score counts double
-    meet[boss] *= 2
-
-    # Happiness rating is total score/ number of people in room
-    score = np.array([*meet.values()]).mean()
-
-    if score <= 5:
-        return 'Get Out Now!'
-
-    return 'Nice Work Champ!'
+    return 'Get Out Now!' if (sum(meet.values()) + meet[boss]) / len(meet) <= 5 else 'Nice Work Champ!'
 
 
 if __name__ == '__main__':
