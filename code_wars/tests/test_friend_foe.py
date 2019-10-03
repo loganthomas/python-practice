@@ -12,7 +12,7 @@ Note: keep the original order of the names in the output.
 from code_wars import friend_foe
 
 
-def test_friend():
+def test_friend_4_ins():
     """
     Test if friend returns correct values.
     """
@@ -27,3 +27,55 @@ def test_friend():
     assert result == friends
 
     # Cleanup - none necessary
+
+
+def test_friend_3_ins():
+    """
+    Test if friend returns correct values.
+    """
+    # Setup
+    people  = ['Ryan', 'Kieran', 'Mark']
+    friends = ['Ryan', 'Mark']
+
+    # Exercise
+    result = friend_foe.friend(people)
+
+    # Verify
+    assert result == friends
+
+    # Cleanup - none necessary
+
+
+def test_friend_1_ins():
+    """
+    Test if friend returns correct values.
+    """
+    # Setup
+    people  = ['Loge']
+    friends = ['Loge']
+
+    # Exercise
+    result = friend_foe.friend(people)
+
+    # Verify
+    assert result == friends
+
+    # Cleanup - none necessary
+
+
+def test_friend_none():
+    """
+    Test if friend returns no values.
+    """
+    # Setup
+    people  = ['Ry', 'K', 'M']
+    friends = []
+
+    # Exercise
+    result = friend_foe.friend(people)
+
+    # Verify
+    assert result == friends
+
+    # Cleanup - none necessary
+
