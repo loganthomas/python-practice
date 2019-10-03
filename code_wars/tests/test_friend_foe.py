@@ -9,7 +9,7 @@ Ex: Input = ['Ryan', 'Kieran', 'Jason', 'Yous'], Output = ['Ryan', 'Yous']
 Note: keep the original order of the names in the output.
 """
 
-from  friend_foe import friend
+from code_wars import friend_foe
 
 
 def test_friend():
@@ -21,7 +21,7 @@ def test_friend():
     friends = ['Ryan', 'Yous']
 
     # Exercise
-    result = friend(people)
+    result = friend_foe.friend(people)
 
     # Verify
     assert result == friends
