@@ -12,7 +12,7 @@ def test_exists_for_all_files():
     # Exercise
     test_files = [f.name for f in Path('.').glob('*.py') if not str.startswith(f.stem, '_')]
     test_files = sorted([f.replace('test_', '') for f in test_files])
-    test_files.remove('ensure_tests_exist.py')
+    test_files.remove('1_ensure_tests_exist.py')
 
     # Verify
     assert code_wars_files == test_files
