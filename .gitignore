@@ -3,6 +3,9 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# pytest
+.coverage
+
 # Jupyter Notebook
 .ipynb_checkpoints
 
