@@ -7,6 +7,7 @@ false in any other case.
 """
 
 import pytest
+import random
 from code_wars import is_triangle
 
 
@@ -40,6 +41,28 @@ def test_false_triangle(a,b,c):
     """
     # Setup
     expected = False
+
+    # Exercise
+    result = is_triangle.is_triangle(a,b,c)
+
+    # Verify
+    assert result == expected
+
+    # Cleanup - none necessary
+
+
+# Run random triangles 5 times
+@pytest.mark.parametrize(
+    'a,b,c,',
+    [(random.randint(1,1000), random.randint(1,1000), random.randint(1,1000)) for _ in range(5)]
+)
+def test_random_triangle(a,b,c):
+    # Setup
+    expected = True
+
+    # Triangle inequality (different from function being tested)
+    if (a + b <= c) | (a + c <= b) | (b + c <= a):
+        expected = False
 
     # Exercise
     result = is_triangle.is_triangle(a,b,c)
