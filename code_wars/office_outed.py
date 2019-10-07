@@ -1,6 +1,6 @@
 """
 Your colleagues have been looking over you shoulder. When you should have been doing your boring
-real job, you've been using the work computers to smash in endless hours of codewars.
+real job, you've been using the work computers to smash in endless hours of code_wars.
 
 In a team meeting, a terrible, awful person declares to the group that you aren't working.
 You're in trouble. You quickly have to gauge the feeling in the room to decide whether or not you
@@ -19,28 +19,6 @@ Note that your boss is in the room (boss), their score is worth double it's face
 
 
 def outed(meet, boss):
-    return 'Get Out Now!' if (sum(meet.values()) + meet[boss]) / len(meet) <= 5 else 'Nice Work Champ!'
-
-
-if __name__ == '__main__':
-    """ Simple tests. Consider refactoring with pytest later. """
-    # Test 1
-    assert outed(
-        {'tim':0, 'jim':2, 'randy':0, 'sandy':7, 'andy':0, 'katie':5,
-         'laura':1, 'saajid':2, 'alex':3, 'john':2, 'mr':0}, 'laura') == 'Get Out Now!', (
-             "fails test1")
-    # Test 2
-    assert outed(
-        {'tim':1, 'jim':3, 'randy':9, 'sandy':6, 'andy':7, 'katie':6,
-         'laura':9, 'saajid':9, 'alex':9, 'john':9, 'mr':8}, 'katie') == 'Nice Work Champ!', (
-             "fails test2")
-
-    # Test 3
-    assert outed(
-        {'tim':2, 'jim':4, 'randy':0, 'sandy':5, 'andy':8, 'katie':6,
-         'laura':2, 'saajid':2, 'alex':3, 'john':2, 'mr':8}, 'john') == 'Get Out Now!', (
-             "fails test3")
-
-    # Assuming asserts are never skipped/ignored
-    print('Great Success!')
+    s = 'Get Out Now!' if (sum(meet.values()) + meet[boss]) / len(meet) <= 5 else 'Nice Work Champ!'
+    return s
 
