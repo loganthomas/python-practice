@@ -6,4 +6,11 @@ install:
 
 # command to run tests
 script:
-  - pytest
+  - pytest --cov-report term-missing
+
+env:
+ - CODECOV_TOKEN=$CODECOV_TOKEN
+
+after_success:
+ - codecov
+
