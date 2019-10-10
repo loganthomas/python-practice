@@ -1,4 +1,5 @@
 # Python Practice Repo
+[![Build Status](https://travis-ci.com/loganthomas/Python_Practice.svg?branch=master)](https://travis-ci.com/loganthomas/Python_Practice)
 > These are a number of practice problems I have compiled over the years to teach myself python.  
 > These problems range in complexity from *very simple* to *kinda hard*.  
 >> Most of the initial commits were my first attempt at tackling the problem.  
