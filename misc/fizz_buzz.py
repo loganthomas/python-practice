@@ -20,12 +20,13 @@ def fizzbuzz(list):
             output.append(x)
     return output
 
+
 func_output = fizzbuzz(range(1, 101))
 
 
 # Validation df
 df = pd.DataFrame([x for x in range(1, 101)])
-df['mod3'] = df[0] %  3
+df['mod3'] = df[0] % 3
 df['mod5'] = df[0] % 5
 df['mod15'] = df[0] % 15
 
