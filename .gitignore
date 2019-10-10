@@ -12,3 +12,8 @@ __pycache__/
 # Mac OS
 .DS_Store
 
+# Data directories
+data/
+
+# Vim
+*.swp

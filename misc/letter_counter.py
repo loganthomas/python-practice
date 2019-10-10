@@ -42,3 +42,4 @@ if __name__ == '__main__':
     user_word = input('Please enter a word: ')
     user_letter = input('Please enter a letter: ')
     count = letter_counter(user_word, user_letter)
+

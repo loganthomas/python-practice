@@ -35,6 +35,16 @@ Answers:
     Part 1: 1251
     Part 2: 1244
 """
+from pathlib import Path
+
+
+# No kwargs on purpose (for pytest)
+def load_data():
+    input_file_path = Path(__file__).parent.joinpath('data/day1_puzzle.txt')
+    with open(input_file_path, 'r') as input_file:
+        data = input_file.readline().strip()
+
+    return data
 
 
 # Part 1 Solution
@@ -57,25 +67,4 @@ def captcha2(data):
 
     out = sum([int(a) for a,b in zip(data, comp_data) if a == b])
     return out
-
-
-# Solution 1 Testing
-assert captcha1('1122')     == 3, 'Wrong'
-assert captcha1('1111')     == 4, 'Wrong'
-assert captcha1('1234')     == 0, 'Wrong'
-assert captcha1('91212129') == 9, 'Wrong'
-
-# Solution 2 Testing
-assert captcha2('1212')     == 6 , 'Wrong'
-assert captcha2('1221')     == 0 , 'Wrong'
-assert captcha2('123425')   == 4 , 'Wrong'
-assert captcha2('123123')   == 12, 'Wrong'
-assert captcha2('12131415') == 4 , 'Wrong'
-
-# Read in Puzzle and Check Solution
-with open('day1_puzzle.txt') as f:
-    data = f.readline().strip()
-
-assert captcha1(data) == 1251, 'Wrong'
-assert captcha2(data) == 1244, 'Wrong'
 

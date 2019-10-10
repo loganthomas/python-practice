@@ -48,8 +48,15 @@ Answer:
     Part 1: 41887
     Part 2: 226
 """
-
 import numpy as np
+from pathlib import Path
+
+
+# No kwargs on purpose (for pytest)
+def load_data():
+    input_file_path = Path(__file__).parent.joinpath('data/day2_puzzle.txt')
+    data = np.loadtxt(input_file_path)
+    return data
 
 
 # Part 1 Solution
@@ -67,7 +74,7 @@ def captcha1(data):
 
 # Part 2 Solution
 def captcha2(data):
-    """ Assumes data i np.array """
+    """ Assumes data is np.array """
     out = []
     for row in data:
         sort = sorted(row, reverse=True)
@@ -81,19 +88,4 @@ def captcha2(data):
                     out.append(n / c)
 
     return sum(out)
-
-
-# Part 1 Testing
-test_data1 = np.array( [[5,1,9,5], [7,5,3,4], [2,4,6,8]] )
-assert captcha1(test_data1) == 18, 'Wrong'
-
-# Part 2 Testing
-test_data2 = np.array( [[5,9,2,8], [9,4,7,3], [3,8,6,5]] )
-assert captcha2(test_data2) == 9, 'Wrong'
-
-# Read in Puzzle and Check Solution
-data = np.loadtxt('day2_puzzle.txt')
-
-assert captcha1(data) == 41887
-assert captcha2(data) == 226
 

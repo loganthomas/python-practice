@@ -44,3 +44,4 @@ if __name__ == '__main__':
         '{} is the intersection of {} and {}'
         .format(in_common, list_3, list_4)
     )
+
