@@ -113,3 +113,63 @@ def test_correct_empty_list_backwardsPrime2(start,nd,expected):
 
     # Cleanup - none necessary
 
+
+primes     = [2, 3, 5, 7, 11, 13, 17, 19]
+non_primes = [x for x in range(2,21) if x not in primes]
+
+
+@pytest.mark.parametrize('n', primes)
+def test_is_prime_on_primes(n):
+    # Setup
+    expected = True
+
+    # Exercise
+    result = backwards_primes._is_prime(n)
+
+    # Verify
+    assert result == expected
+
+    # Cleanup - none necessary
+
+
+@pytest.mark.parametrize('n', non_primes)
+def test_is_prime_on_non_primes(n):
+    # Setup
+    expected = False
+
+    # Exercise
+    result = backwards_primes._is_prime(n)
+
+    # Verify
+    assert result == expected
+
+    # Cleanup - none necessary
+
+
+@pytest.mark.parametrize('n', primes)
+def test_is_prime2_on_primes(n):
+    # Setup
+    expected = True
+
+    # Exercise
+    result = backwards_primes._is_prime2(n)
+
+    # Verify
+    assert result == expected
+
+    # Cleanup - none necessary
+
+
+@pytest.mark.parametrize('n', non_primes)
+def test_is_primei2_on_non_primes(n):
+    # Setup
+    expected = False
+
+    # Exercise
+    result = backwards_primes._is_prime2(n)
+
+    # Verify
+    assert result == expected
+
+    # Cleanup - none necessary
+
