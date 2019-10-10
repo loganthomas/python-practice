@@ -43,9 +43,9 @@ Notes:
 
 
 def _is_prime(n):
-    # Corner cases
-    if (n <= 1) :
-        return False
+    # Corner cases (primes should be greater than 1)
+    # if (n <= 1) :
+        # return False
     if (n <= 3) :
         return True
 
