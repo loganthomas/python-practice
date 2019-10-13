@@ -1,39 +1,35 @@
 # Personal Python Docstring notes
-> A set of notes I have compiled pertaining to docstring formatting.   
-> I find following the concepts laid out in [Google Style Python Docstrings](https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_google.html) and
-[PEP 257](https://www.python.org/dev/peps/pep-0257/) most appealing.  
-> I am __not__ claiming to be the author of these ideas, just compiling them for my personal benefit. 
-
+> - A set of notes I have compiled pertaining to docstring formatting.   
+> - I find following the concepts laid out in [Google Style Python Docstrings](https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_google.html) and [PEP 257](https://www.python.org/dev/peps/pep-0257/) most appealing.  
+> - I am __not__ claiming to be the author of these ideas, just compiling them for my personal benefit. 
 
 ## PEP 257 notes
-- For flowing long blocks of text with fewer structural restrictions (docstrings or comments), the line length should be limited to __72 characters__ (PEP 8).
-- For consistency, always use `"""triple double quotes"""` around docstrings.
-- Use `r"""raw triple double quotes"""` if you use any backslashes in your docstrings.
+- For flowing long blocks of text with fewer structural restrictions (docstrings or comments), the line length should be limited to __72 characters__ (PEP 8).  
+- For consistency, always use `"""triple double quotes"""` around docstrings.  
+- Use `r"""raw triple double quotes"""` if you use any backslashes in your docstrings.  
 
 - One-line Docstrings
-  - Triple quotes are used even though the string fits on one line.
-  - Closing quotes are on the same line as the opening quotes (this looks better for one-liners).
-  - There's no blank line either before or after the docstring.
-  - The docstring is a phrase ending in a period (as it prescribes the function or method's effect as a command not a description).
+    - Triple quotes are used even though the string fits on one line.
+    - Closing quotes are on the same line as the opening quotes (this looks better for one-liners).
+    - There's no blank line either before or after the docstring.
+    - The docstring is a phrase ending in a period (as it prescribes the function or method's effect as a command not a description).
 
 - Multi-line Docstrings
-  - Consist of a __summary line__, followed by a blank line, followed by a more elaborate description.
-    - Summary line should fit on one line and be separated from the rest of the docstring by a blank line.
-    - Summary line can be on the same line as the opening quotes or on the next line (I prefer to use the next line).  
-  - Insert a blank line after all docstrings (one-line or multi-line) that document a __class__. Generally speaking, the class's methods are separated from each 
+    - Consist of a __summary line__, followed by a blank line, followed by a more elaborate description.
+        - Summary line should fit on one line and be separated from the rest of the docstring by a blank line.
+        - Summary line can be on the same line as the opening quotes or on the next line (I prefer to use the next line).  
+    - Insert a blank line after all docstrings (one-line or multi-line) that document a __class__. Generally speaking, the class's methods are separated from each 
   other by a single blank line, and the docstring needs to be offset from the first method by a blank line.
-  - The docstring for a __function__ or __method__ should summarize its behavior and document its arguments, return value(s), side effects, exceptions raised, 
+    - The docstring for a __function__ or __method__ should summarize its behavior and document its arguments, return value(s), side effects, exceptions raised, 
   and restrictions on when it can be called (all if applicable).
-    - Optional arguments should be indicated.
-    - It is best to list each argument on a separate line. 
+        -  Optional arguments should be indicated.
+        -  It is best to list each argument on a separate line. 
  
 
 ## Google Style Python Docstring notes
-> There are a few recommended ways to list argument types when working with Sphinx and the
-extension napoleon (example `param2 (:obj:`list` of :obj:`str`)`.  
-> I prefer a simpler version as I don't use Sphinx at this point in time (example 
-`param2 (list of str)`).  
-> See `Args` section of below function.
+> - There are a few recommended ways to list argument types when working with Sphinx and the extension napoleon (example `param2 (:obj:`list` of :obj:`str`)`.  
+> - I prefer a simpler version as I don't use Sphinx at this point in time (example t `param2 (list of str)`).  
+> - See `Args` section of below function.
 
 
 ```python
@@ -89,7 +85,6 @@ def module_level_function(param1, param2, param3, param4=None, *args, **kwargs):
     return True
 ``` 
 
-
 ```python
 def example_generator(n):
     """
@@ -112,4 +107,3 @@ def example_generator(n):
     for i in range(n):
         yield i
 ```
- 
