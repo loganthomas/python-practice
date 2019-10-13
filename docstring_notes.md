@@ -16,12 +16,12 @@
 
 - Multi-line Docstrings
     - Consist of a __summary line__, followed by a blank line, followed by a more elaborate description.
-        - Summary line should fit on one line and be separated from the rest of the docstring by a blank line.
+        - Summary line should fit on one line and be separated from the rest of the docstring by a blank line.  
         - Summary line can be on the same line as the opening quotes or on the next line (I prefer to use the next line).  
     - Insert a blank line after all docstrings (one-line or multi-line) that document a __class__. Generally speaking, the class's methods are separated from each 
-  other by a single blank line, and the docstring needs to be offset from the first method by a blank line.
+  other by a single blank line, and the docstring needs to be offset from the first method by a blank line.  
     - The docstring for a __function__ or __method__ should summarize its behavior and document its arguments, return value(s), side effects, exceptions raised, 
-  and restrictions on when it can be called (all if applicable).
+  and restrictions on when it can be called (all if applicable).  
         -  Optional arguments should be indicated.
         -  It is best to list each argument on a separate line. 
  
@@ -30,7 +30,6 @@
 > - There are a few recommended ways to list argument types when working with Sphinx and the extension napoleon (example `param2 (:obj:`list` of :obj:`str`)`.  
 > - I prefer a simpler version as I don't use Sphinx at this point in time (example t `param2 (list of str)`).  
 > - See `Args` section of below function.
-
 
 ```python
 def module_level_function(param1, param2, param3, param4=None, *args, **kwargs):
