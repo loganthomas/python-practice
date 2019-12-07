@@ -1,4 +1,4 @@
-from advent_2017 import day1
+from advent_of_code.year_2017 import day1
 import pytest
 
 
