@@ -24,7 +24,7 @@ def test_day1_part1_calc_fuel_provided_examples_types(data, expected):
     result = day1.calc_fuel(data)
 
     # Verify
-    assert type(result) == int
+    assert isinstance(result,int)
 
     # Cleanup - none necessary
 
