@@ -31,10 +31,10 @@ def test_day1_part1_calc_fuel_provided_examples_types(data, expected):
 
 def test_day1_part1_answer():
     # Setup
+    data_path = Path('advent_of_code/year_2019/data/day1_puzzle.txt')
     expected = 3381405
 
     # Exercise
-    data_path = Path('advent_of_code/year_2019/data/day1_puzzle.txt')
     result = day1.part_1_answer(data_path)
 
     # Verify
@@ -71,10 +71,10 @@ def test_day1_part2_calc_recursive_fuel_provided_examples(data, expected):
 
 def test_day1_partw_answer():
     # Setup
+    data_path = Path('advent_of_code/year_2019/data/day1_puzzle.txt')
     expected = 5069241
 
     # Exercise
-    data_path = Path('advent_of_code/year_2019/data/day1_puzzle.txt')
     result = day1.part_2_answer(data_path)
 
     # Verify
