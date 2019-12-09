@@ -82,3 +82,32 @@ def test_day2_part1_answer():
 
     # Cleanup - none necessary
 
+
+def test_day2_part2_with_part1_answer():
+    # Setup
+    data_path = Path('advent_of_code/year_2019/data/day2_puzzle.txt')
+    expected = (12, 2, 1202)
+
+    # Exercise
+    result = day2.part_2_answer(data_path, 3516593)
+
+    # Verify
+    assert result == expected
+
+    # Cleanup - none necessary
+
+
+def test_day2_part2_answer():
+    # Setup
+    data_path = Path('advent_of_code/year_2019/data/day2_puzzle.txt')
+    expected = (77, 49, 7749)
+
+    # Exercise
+    result = day2.part_2_answer(data_path, 19690720)
+
+    # Verify
+    assert result == expected
+
+    # Cleanup - none necessary
+
+
