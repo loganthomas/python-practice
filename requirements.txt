@@ -3,3 +3,4 @@ numpy
 pytest
 pytest-cov
 codecov
+matplotlib
