@@ -1,6 +1,7 @@
 # Personal Python Docstring notes
 > - A set of notes I have compiled pertaining to docstring formatting.   
 > - I find following the concepts laid out in [Google Style Python Docstrings](https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_google.html) and [PEP 257](https://www.python.org/dev/peps/pep-0257/) most appealing.  
+> - A great reference for writing _Pythonnic_ code can be found [here](https://gist.github.com/sloria/7001839)
 > - I am __not__ claiming to be the author of these ideas, just compiling them for my personal benefit. 
 
 ## PEP 257 notes
