@@ -1,6 +1,9 @@
 language: python
 
 # command to install dependencies
+before_script:
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
 install:
   - pip install -r requirements.txt
 
@@ -10,6 +13,7 @@ script:
 
 env:
  - CODECOV_TOKEN=$CODECOV_TOKEN
+ - CC_TEST_REPORTER_ID=86b29a90a3fd8c552dc26701fe50204743f1d02a2047f6b965ba72e8ae2a1ed2
 
 after_success:
  - codecov
