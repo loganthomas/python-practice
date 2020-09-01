@@ -1,15 +1,28 @@
-# These are the default settings from CodeCov
 codecov:
   require_ci_to_pass: yes
 
 coverage:
-  precision: 2
-  round: up
-  range: "70...100"
+  precision: 2         # how many decimal places to display in the UI : 0 <= value <= 4
+  round: up            # how coverage is rounded: down/up/nearest
+  range: "70...100"    # custom range of coverage colors from red -> yellow -> green
 
   status:
-    project: yes
-    patch: yes
+    project:           # measuring the overall project coverage
+      default:
+        enabled: yes   # must be yes|true to enable status
+        target: 75%    # specify target coverage for each commit status
+                       #    option: "auto" (must increase from parent commit or PR base)
+                       #    option: "x%" a static target percentage to hit
+        threshold: 1%  # allow the coverage to drop by "x%", and posting a success status
+
+    patch:             # pull requests only: this commit status will measure the
+                       # entire pull requests Coverage Diff. Checking if the lines
+                       # adjusted are covered at least "x%".
+      default:
+        enabled: yes   # must be yes|true to enable status
+        target: 75%    # specify the target "x%" to hit
+        threshold: 1%  # allow the coverage to drop by "x%", and posting a success stats
+
     changes: no
 
 parsers:
