@@ -1,6 +1,3 @@
 [run]
 omit =
     *__init__.py
-    advent_of_code/year_2017/tests/*
-    advent_of_code/year_2019/tests/*
-    code_wars/tests/*
