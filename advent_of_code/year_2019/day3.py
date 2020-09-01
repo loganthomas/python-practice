@@ -1,7 +1,6 @@
 from collections import namedtuple
 from matplotlib import pyplot as plt
 import numpy as np
-from pathlib import Path
 
 Point = namedtuple('Point', ['x', 'y'])
 
@@ -94,6 +93,7 @@ def find_closest_point_to_center(intersections):
 
 
 def plot_wires(wire1_points, wire2_points, intersections, pt):
+    """ Use fig.show() to show image. """
 
     w1_x = [p.x for p in wire1_points]
     w1_y = [p.y for p in wire1_points]
@@ -104,66 +104,18 @@ def plot_wires(wire1_points, wire2_points, intersections, pt):
     int_x = [p.x for p in intersections]
     int_y = [p.y for p in intersections]
 
-    plt.plot(w1_x, w1_y, marker='o', label='wire1', alpha=0.5, markersize=2)
-    plt.plot(w2_x, w2_y, marker='o', label='wire2', alpha=0.5, markersize=2)
-    plt.scatter(int_x, int_y, marker='x', color='r', label='intersection')
-    plt.scatter(pt.x, pt.y, facecolors='none', edgecolors='g', label='closest', s=100)
+    fig = plt.figure()
 
-    plt.grid(True)
-    plt.xlim((min(w1_x + w2_x) - 1, max(w1_x + w2_x) + 1))
-    plt.ylim((min(w1_y + w2_y) - 1, max(w1_y + w2_y) + 1))
-    plt.legend()
-    plt.show()
+    ax = fig.add_subplot(1,1,1)
 
+    ax.plot(w1_x, w1_y, marker='o', color='b', label='wire1', alpha=0.5, markersize=2)
+    ax.plot(w2_x, w2_y, marker='o', color='orange', label='wire2', alpha=0.5, markersize=2)
+    ax.scatter(int_x, int_y, marker='x', color='r', label='intersection')
+    ax.scatter(pt.x, pt.y, facecolors='none', edgecolors='g', label='closest', s=100)
 
-# # Part 1 provided example 1
-# wire1_points = collect_wire_points(['R8', 'U5', 'L5', 'D3'])
-# wire2_points = collect_wire_points(['U7', 'R6', 'D4', 'L4'])
-# wire1_metapoints = collect_wire_metapoints(wire1_points)
-# wire2_metapoints = collect_wire_metapoints(wire2_points)
-# intersections = find_intersections(wire1_metapoints,wire2_metapoints)
-# pt, dist = find_closest_point_to_center(intersections)
+    ax.grid(True)
+    ax.set_xlim((min(w1_x + w2_x) - 1, max(w1_x + w2_x) + 1))
+    ax.set_ylim((min(w1_y + w2_y) - 1, max(w1_y + w2_y) + 1))
+    ax.legend()
 
-# plot_wires(wire1_points, wire2_points, intersections, pt)
-# print(f'Point: {pt} Dist: {dist}')
-
-
-# # Part 1 provided example 2
-# wire1_points = collect_wire_points(['R75','D30','R83','U83','L12','D49','R71','U7','L72'])
-# wire2_points = collect_wire_points(['U62','R66','U55','R34','D71','R55','D58','R83'])
-# wire1_metapoints = collect_wire_metapoints(wire1_points)
-# wire2_metapoints = collect_wire_metapoints(wire2_points)
-# intersections = find_intersections(wire1_metapoints,wire2_metapoints)
-# pt, dist = find_closest_point_to_center(intersections)
-
-# plot_wires(wire1_points, wire2_points, intersections, pt)
-# print(f'Point: {pt} Dist: {dist}')
-
-# # Part 1 provided example 3
-# wire1_points = collect_wire_points(['R98','U47','R26','D63','R33','U87','L62','D20','R33','U53','R51'])
-# wire2_points = collect_wire_points(['U98','R91','D20','R16','D67','R40','U7','R15','U6','R7'])
-# wire1_metapoints = collect_wire_metapoints(wire1_points)
-# wire2_metapoints = collect_wire_metapoints(wire2_points)
-# intersections = find_intersections(wire1_metapoints,wire2_metapoints)
-# pt, dist = find_closest_point_to_center(intersections)
-
-# plot_wires(wire1_points, wire2_points, intersections, pt)
-# print(f'Point: {pt} Dist: {dist}')
-
-
-# # Part 1 answer
-# data_path = Path('advent_of_code/year_2019/data/day3_puzzle.txt')
-# text = data_path.read_text().strip().split('\n')
-# wire1_text = text[0].split(',')
-# wire2_text = text[1].split(',')
-
-# wire1_points = collect_wire_points(wire1_text)
-# wire2_points = collect_wire_points(wire2_text)
-# wire1_metapoints = collect_wire_metapoints(wire1_points)
-# wire2_metapoints = collect_wire_metapoints(wire2_points)
-# intersections = find_intersections(wire1_metapoints,wire2_metapoints)
-# pt, dist = find_closest_point_to_center(intersections)
-
-# plot_wires(wire1_points, wire2_points, intersections, pt)
-# print(f'Point: {pt} Dist: {dist}')
-
+    return fig
