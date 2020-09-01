@@ -552,15 +552,11 @@ def test_plot_wires_provided_1():
         - Above must have "baseline" as directory
     """
     # Setup
-    wire1_points     = day3.collect_wire_points(['R8', 'U5', 'L5', 'D3'])
-    wire2_points     = day3.collect_wire_points(['U7', 'R6', 'D4', 'L4'])
-    wire1_metapoints = day3.collect_wire_metapoints(wire1_points)
-    wire2_metapoints = day3.collect_wire_metapoints(wire2_points)
-    intersections    = day3.find_intersections(wire1_metapoints,wire2_metapoints)
-    pt, dist         = day3.find_closest_point_to_center(intersections)
+    provided_1_wire1 = ['R8', 'U5', 'L5', 'D3']
+    provided_1_wire2 = ['U7', 'R6', 'D4', 'L4']
 
     # Exercise
-    fig = day3.plot_wires(wire1_points, wire2_points, intersections, pt)
+    pt, dist, fig = day3.run(provided_1_wire1, provided_1_wire2)
 
     # Verify - image done by pytest-mpl
     assert pt   == day3.Point(3,3)
@@ -572,19 +568,14 @@ def test_plot_wires_provided_1():
     return fig
 
 
-@pytest.mark.mpl_image_compare()
+@pytest.mark.mpl_image_compare(remove_text=True)
 def test_plot_wires_provided_2():
-    """ Need to write this test. See SciPy tutorial for using images..."""
     # Setup
-    wire1_points     = day3.collect_wire_points(['R75','D30','R83','U83','L12','D49','R71','U7','L72'])
-    wire2_points     = day3.collect_wire_points(['U62','R66','U55','R34','D71','R55','D58','R83'])
-    wire1_metapoints = day3.collect_wire_metapoints(wire1_points)
-    wire2_metapoints = day3.collect_wire_metapoints(wire2_points)
-    intersections    = day3.find_intersections(wire1_metapoints,wire2_metapoints)
-    pt, dist         = day3.find_closest_point_to_center(intersections)
+    provided_2_wire1 = ['R75','D30','R83','U83','L12','D49','R71','U7','L72']
+    provided_2_wire2 = ['U62','R66','U55','R34','D71','R55','D58','R83']
 
     # Exercise
-    fig = day3.plot_wires(wire1_points, wire2_points, intersections, pt)
+    pt, dist, fig = day3.run(provided_2_wire1, provided_2_wire2)
 
     # Verify - imaged done by pytest-mpl
     assert pt   == day3.Point(155, 4)
@@ -598,18 +589,12 @@ def test_plot_wires_provided_2():
 
 @pytest.mark.mpl_image_compare()
 def test_plot_wires_provided_3():
-    """ Need to write this test. See SciPy tutorial for using images..."""
     # Setup
-    wire1_points     = day3.collect_wire_points(['R98','U47','R26','D63','R33','U87','L62','D20','R33','U53','R51'])
-    wire2_points     = day3.collect_wire_points(['U98','R91','D20','R16','D67','R40','U7','R15','U6','R7'])
-    wire1_metapoints = day3.collect_wire_metapoints(wire1_points)
-    wire2_metapoints = day3.collect_wire_metapoints(wire2_points)
-    intersections    = day3.find_intersections(wire1_metapoints,wire2_metapoints)
-    pt, dist         = day3.find_closest_point_to_center(intersections)
+    provided_3_wire1 = ['R98','U47','R26','D63','R33','U87','L62','D20','R33','U53','R51']
+    provided_3_wire2 = ['U98','R91','D20','R16','D67','R40','U7','R15','U6','R7']
 
     # Exercise
-
-    fig = day3.plot_wires(wire1_points, wire2_points, intersections, pt)
+    pt, dist, fig = day3.run(provided_3_wire1, provided_3_wire2)
 
     # Verify - image done by pytest-mpl
     assert pt   == day3.Point(124, 11)
@@ -630,17 +615,7 @@ def test_part_1_answer():
     wire2_text = text[1].split(',')
 
     # Exercise
-    wire1_points = day3.collect_wire_points(wire1_text)
-    wire2_points = day3.collect_wire_points(wire2_text)
-
-    wire1_metapoints = day3.collect_wire_metapoints(wire1_points)
-    wire2_metapoints = day3.collect_wire_metapoints(wire2_points)
-
-    intersections = day3.find_intersections(wire1_metapoints,wire2_metapoints)
-
-    pt, dist = day3.find_closest_point_to_center(intersections)
-
-    fig = day3.plot_wires(wire1_points, wire2_points, intersections, pt)
+    pt, dist, fig = day3.run(wire1_text, wire2_text)
 
     # Verify
     assert pt   == day3.Point(-330,2097)

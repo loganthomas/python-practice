@@ -119,3 +119,19 @@ def plot_wires(wire1_points, wire2_points, intersections, pt):
     ax.legend()
 
     return fig
+
+
+def run(wire1, wire2):
+    wire1_points = collect_wire_points(wire1)
+    wire2_points = collect_wire_points(wire2)
+
+    wire1_metapoints = collect_wire_metapoints(wire1_points)
+    wire2_metapoints = collect_wire_metapoints(wire2_points)
+
+    intersections = find_intersections(wire1_metapoints, wire2_metapoints)
+
+    pt, dist = find_closest_point_to_center(intersections)
+
+    fig = plot_wires(wire1_points, wire2_points, intersections, pt)
+
+    return pt, dist, fig
