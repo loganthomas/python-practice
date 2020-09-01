@@ -6,7 +6,7 @@ install:
 
 # command to run tests (report "this directory" i.e. "dot")
 script:
-    - pytest --cov-report term-missing --cov=. --color=yes
+    - pytest --cov-report term-missing --cov=. --color=yes --mpl
 
 env:
  - CODECOV_TOKEN=$CODECOV_TOKEN
