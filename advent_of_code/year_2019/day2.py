@@ -230,4 +230,3 @@ def part_2_answer(data_path=data_path, expected=19690720):
 
             if dl[0] == expected:
                 return noun, verb, 100 * noun + verb
-
