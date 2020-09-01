@@ -70,11 +70,12 @@ def test_random_true_triangle(a,b):
 
 
 @pytest.mark.parametrize(
-    'a,b,c',
-    [(random.randint(100,500), random.randint(100,500), random.randint(1,10)) for _ in range(5)]
+    'a,b',
+    [(random.randint(1,1000), random.randint(1,1000)) for _ in range(5)]
 )
-def test_random_false_triangle(a,b,c):
+def test_random_false_triangle(a,b):
     # Setup
+    c = a + b + 1
     expected = False
 
     # Exercise

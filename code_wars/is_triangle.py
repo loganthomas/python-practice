@@ -14,4 +14,3 @@ def is_triangle(a, b, c):
 
     # triangle inequality theorem (with sorted)
     return a + b > c
-
