@@ -4,3 +4,4 @@ pytest
 pytest-cov<2.6.0
 codecov
 matplotlib
+pytest-mpl
