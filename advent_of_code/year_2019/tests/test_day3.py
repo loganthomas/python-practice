@@ -540,11 +540,88 @@ def test_find_closest_point_to_center(intersections, expected):
     # Cleanup - none necessary
 
 
-def test_plot_wires():
+@pytest.mark.mpl_image_compare(remove_text=True)
+def test_plot_wires_provided_1():
+    """
+    Notes:
+        - Remove text as pytest-mpl is finicky with text.
+          This will remove (titles, axes, labels, etc.)
+        - First run needs to specify where to store base image for
+          comparison later on:
+          pytest -k test_plot_wires_provided_1 --mpl-generate-path=advent_of_code/year_2019/tests/baseline
+        - Above must have "baseline" as directory
+    """
+    # Setup
+    wire1_points     = day3.collect_wire_points(['R8', 'U5', 'L5', 'D3'])
+    wire2_points     = day3.collect_wire_points(['U7', 'R6', 'D4', 'L4'])
+    wire1_metapoints = day3.collect_wire_metapoints(wire1_points)
+    wire2_metapoints = day3.collect_wire_metapoints(wire2_points)
+    intersections    = day3.find_intersections(wire1_metapoints,wire2_metapoints)
+    pt, dist         = day3.find_closest_point_to_center(intersections)
+
+    # Exercise
+    fig = day3.plot_wires(wire1_points, wire2_points, intersections, pt)
+
+    # Verify - image done by pytest-mpl
+    assert pt   == day3.Point(3,3)
+    assert dist == 6
+
+    # Cleanup - none necessary
+
+    # Required for pytest-mpl for image testing
+    return fig
+
+
+@pytest.mark.mpl_image_compare()
+def test_plot_wires_provided_2():
     """ Need to write this test. See SciPy tutorial for using images..."""
-    pytest.xfail()
+    # Setup
+    wire1_points     = day3.collect_wire_points(['R75','D30','R83','U83','L12','D49','R71','U7','L72'])
+    wire2_points     = day3.collect_wire_points(['U62','R66','U55','R34','D71','R55','D58','R83'])
+    wire1_metapoints = day3.collect_wire_metapoints(wire1_points)
+    wire2_metapoints = day3.collect_wire_metapoints(wire2_points)
+    intersections    = day3.find_intersections(wire1_metapoints,wire2_metapoints)
+    pt, dist         = day3.find_closest_point_to_center(intersections)
+
+    # Exercise
+    fig = day3.plot_wires(wire1_points, wire2_points, intersections, pt)
+
+    # Verify - imaged done by pytest-mpl
+    assert pt   == day3.Point(155, 4)
+    assert dist == 159
+
+    # Cleanup - none necessary
+
+    # Required for pytest-mpl for image testing
+    return fig
 
 
+@pytest.mark.mpl_image_compare()
+def test_plot_wires_provided_3():
+    """ Need to write this test. See SciPy tutorial for using images..."""
+    # Setup
+    wire1_points     = day3.collect_wire_points(['R98','U47','R26','D63','R33','U87','L62','D20','R33','U53','R51'])
+    wire2_points     = day3.collect_wire_points(['U98','R91','D20','R16','D67','R40','U7','R15','U6','R7'])
+    wire1_metapoints = day3.collect_wire_metapoints(wire1_points)
+    wire2_metapoints = day3.collect_wire_metapoints(wire2_points)
+    intersections    = day3.find_intersections(wire1_metapoints,wire2_metapoints)
+    pt, dist         = day3.find_closest_point_to_center(intersections)
+
+    # Exercise
+
+    fig = day3.plot_wires(wire1_points, wire2_points, intersections, pt)
+
+    # Verify - image done by pytest-mpl
+    assert pt   == day3.Point(124, 11)
+    assert dist == 135
+
+    # Cleanup - none necessary
+
+    # Required for pytest-mpl for image testing
+    return fig
+
+
+@pytest.mark.mpl_image_compare()
 def test_part_1_answer():
     # Setup
     data_path = Path('advent_of_code/year_2019/data/day3_puzzle.txt')
@@ -563,9 +640,13 @@ def test_part_1_answer():
 
     pt, dist = day3.find_closest_point_to_center(intersections)
 
+    fig = day3.plot_wires(wire1_points, wire2_points, intersections, pt)
+
     # Verify
     assert pt   == day3.Point(-330,2097)
     assert dist == 2427  # Answer to submit
 
     # Cleanup - none necessary
 
+    # Required for pytest-mpl for image testing
+    return fig
