@@ -83,6 +83,21 @@ def test_day2_part1_answer():
     # Cleanup - none necessary
 
 
+def test_day2_part2_perform_opr_fail():
+    # Setup
+    data_tuple = day2.instr_tuple(42,2,3,2)
+
+    # Exercise
+    with pytest.raises(ValueError) as e:
+        day2.perform_tuple_opr(data_tuple,0)
+
+    # Verify
+    assert e.type == ValueError
+    assert "Did not recognize opcode=42 as '1', '2', or '99'" == str(e.value)
+
+    # Cleanup - none necessary
+
+
 def test_day2_part2_with_part1_answer():
     # Setup
     data_path = Path('advent_of_code/year_2019/data/day2_puzzle.txt')
