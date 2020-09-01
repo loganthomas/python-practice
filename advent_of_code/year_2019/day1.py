@@ -106,7 +106,7 @@ def part_2_answer(data_path=data_path):
 
     data = np.loadtxt(data_path)
 
-    total_fuel = int(sum([*map(calc_recursive_fuel,data)]))
+    total_fuel = int(sum(map(calc_recursive_fuel,data)))
 
     return total_fuel
 
