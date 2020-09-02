@@ -1,13 +1,15 @@
 # Personal Python Docstring notes
-> - A set of notes I have compiled pertaining to docstring formatting.   
-> - I find following the concepts laid out in [Google Style Python Docstrings](https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_google.html) and [PEP 257](https://www.python.org/dev/peps/pep-0257/) most appealing.  
+> - A set of notes I have compiled pertaining to docstring formatting.
+> - I find following the concepts laid out in [Google Style Python Docstrings](https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_google.html) and [PEP 257](https://www.python.org/dev/peps/pep-0257/) most appealing.
 > - A great reference for writing _Pythonic_ code can be found [here](https://gist.github.com/sloria/7001839)
 > - I am __not__ claiming to be the author of these ideas, just compiling them for my personal benefit. 
 
 ## PEP 257 notes
-- For flowing long blocks of text with fewer structural restrictions (docstrings or comments), the line length should be limited to __72 characters__ (PEP 8).  
-- For consistency, always use `"""triple double quotes"""` around docstrings.  
-- Use `r"""raw triple double quotes"""` if you use any backslashes in your docstrings.  
+- For flowing long blocks of text with fewer structural restrictions (docstrings or comments), the line length should be limited to __72 characters__ (PEP 8).
+
+- For consistency, always use `"""triple double quotes"""` around docstrings.
+
+- Use `r"""raw triple double quotes"""` if you use any backslashes in your docstrings.
 
 - One-line Docstrings
     - Triple quotes are used even though the string fits on one line.
@@ -17,19 +19,19 @@
 
 - Multi-line Docstrings
     - Consist of a __summary line__, followed by a blank line, followed by a more elaborate description.
-        - Summary line should fit on one line and be separated from the rest of the docstring by a blank line.  
-        - Summary line can be on the same line as the opening quotes or on the next line (I prefer to use the next line).  
-    - Insert a blank line after all docstrings (one-line or multi-line) that document a __class__. Generally speaking, the class's methods are separated from each 
-  other by a single blank line, and the docstring needs to be offset from the first method by a blank line.  
-    - The docstring for a __function__ or __method__ should summarize its behavior and document its arguments, return value(s), side effects, exceptions raised, 
-  and restrictions on when it can be called (all if applicable).  
+        - Summary line should fit on one line and be separated from the rest of the docstring by a blank line.
+        - Summary line can be on the same line as the opening quotes or on the next line (I prefer to use the next line).
+    - Insert a blank line after all docstrings (one-line or multi-line) that document a __class__. Generally speaking, the class's methods are separated from each
+  other by a single blank line, and the docstring needs to be offset from the first method by a blank line.
+    - The docstring for a __function__ or __method__ should summarize its behavior and document its arguments, return value(s), side effects, exceptions raised,
+  and restrictions on when it can be called (all if applicable).
         -  Optional arguments should be indicated.
-        -  It is best to list each argument on a separate line. 
+        -  It is best to list each argument on a separate line.
  
 
 ## Google Style Python Docstring notes
-> - There are a few recommended ways to list argument types when working with Sphinx and the extension napoleon (example `param2 (:obj:`list` of :obj:`str`)`.  
-> - I prefer a simpler version as I don't use Sphinx at this point in time (example t `param2 (list of str)`).  
+> - There are a few recommended ways to list argument types when working with Sphinx and the extension napoleon (example `param2 (:obj:list of :obj:str)`.
+> - I prefer a simpler version as I don't use Sphinx at this point in time (example t `param2 (list of str)`).
 > - See `Args` section of below function.
 
 ```python
@@ -58,7 +60,7 @@ def module_level_function(param1, param2, param3, param4=None, *args, **kwargs):
 
 	param1 (int): The first parameter.
         param2 (:obj:`list` of :obj:`str`): The second parameter.
-        param3 (:obj:`ndarray` of :obj:`float`): The third parameter. 
+        param3 (:obj:`ndarray` of :obj:`float`): The third parameter.
 	param4 (:obj:`str`, optional): The forth parameter. Defaults to None.
 	    Second line of description should be indented.
 	*args: Variable length argument list.
