@@ -19,21 +19,18 @@ def letter_counter(word, letter):
                 within the given word
 
     """
-    # Check if word is a string
-    if type(word) != str:
-        raise TypeError('Given word is not a string')
+    if word.isnumeric():
+        raise TypeError(f"Given word: '{word}' is a number not a word")
 
-    # Check if letter is a string
-    if type(letter) != str:
-        raise TypeError('Given letter is not a string')
+    if letter.isnumeric():
+        raise TypeError(f"Given letter: '{letter}' is a number not a string")
 
-    # Check if letter is only one character
     if len(letter) != 1:
-        raise ValueError('Enter a letter that is one character long')
+        raise ValueError(f"Given letter: '{letter}' must be one character long")
 
     count = sum([1 for let in word if let == letter])
 
-    print('{} occurs {} time(s) in {}'.format(letter, count, word))
+    print(f'{letter} occurs {count} time(s) in {word}')
 
     return count
 
@@ -42,4 +39,3 @@ if __name__ == '__main__':
     user_word = input('Please enter a word: ')
     user_letter = input('Please enter a letter: ')
     count = letter_counter(user_word, user_letter)
-
