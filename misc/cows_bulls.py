@@ -1,4 +1,4 @@
-'''
+"""
 Create a program that will play the “cows and bulls” game with the user.
 The game works like this:
 
@@ -21,7 +21,7 @@ could look like this:
     1 cow, 1 bull
     ...
 Until the user guesses the number.
-'''
+"""
 
 # Python 2 compatibility imports
 from __future__ import absolute_import
@@ -33,7 +33,7 @@ from random import randint
 
 
 def main():
-    print('Welcome to the Cows and Bulls Game!')
+    print("Welcome to the Cows and Bulls Game!")
     ans = randint(1000, 9999)
     ans_digits = [x for x in str(ans)]
     # print(ans)
@@ -42,12 +42,12 @@ def main():
     bulls = 0
 
     while cows != 4:
-        user_ans = input('Enter a 4 digit number: ')
+        user_ans = input("Enter a 4 digit number: ")
         user_ans_digits = [x for x in user_ans]
         n_guesses += 1
 
         if len(user_ans) < 4:
-            print('Error please enter a 4 digit number')
+            print("Error please enter a 4 digit number")
         else:
             for i in range(len(user_ans_digits)):
                 if user_ans_digits[i] == ans_digits[i]:
@@ -55,13 +55,16 @@ def main():
                 elif user_ans_digits[i] in ans_digits:
                     bulls += 1
             if cows == 4:
-                print('Congrats!! Answer is {} and you guessed {}'.format(ans, user_ans))
-                print('Number of guesses: {}'.format(n_guesses))
+                print(
+                    "Congrats!! Answer is {} and you guessed {}".format(ans, user_ans)
+                )
+                print("Number of guesses: {}".format(n_guesses))
             else:
-                print('Incorrect guess again')
-                print('{} cow(s), {} bull(s)'.format(cows, bulls))
+                print("Incorrect guess again")
+                print("{} cow(s), {} bull(s)".format(cows, bulls))
                 cows = 0
                 bulls = 0
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     main()
