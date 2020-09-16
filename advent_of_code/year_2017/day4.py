@@ -47,4 +47,3 @@ def count_valid_passphrases(data):
         - map() is slightly faster than list comprehension here.
     """
     return sum(map(check_valid_passphrase, data))
-

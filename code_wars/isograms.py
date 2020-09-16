@@ -15,4 +15,3 @@ def is_isogram(string):
 
     # Use set for distinct chars within string
     return len(s) == len(set(s))
-

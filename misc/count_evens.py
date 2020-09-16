@@ -19,7 +19,7 @@ def count_evens(nums):
     return cnt
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
 
     import numpy as np
 
@@ -29,5 +29,5 @@ if __name__ == '__main__':
     cnt_x = count_evens(x)
     cnt_y = count_evens(y)
 
-    print('There are {} even numbers in {}'.format(cnt_x, x))
-    print('There are {} even numbers in {}'.format(cnt_y, y))
+    print("There are {} even numbers in {}".format(cnt_x, x))
+    print("There are {} even numbers in {}".format(cnt_y, y))

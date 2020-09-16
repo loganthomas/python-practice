@@ -20,5 +20,4 @@ The second value in the first integer array is 0, since the bus is empty in the 
 
 
 def number(bus_stops):
-    return sum([(on - off) for on,off in bus_stops])
-
+    return sum([(on - off) for on, off in bus_stops])
