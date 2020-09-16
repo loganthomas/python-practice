@@ -18,7 +18,7 @@ def find_range(nums):
     """
     # Check that the list of integers has more than 1 value
     if len(nums) <= 1:
-        raise ValueError('Enter a list of integers with more than one value')
+        raise ValueError("Enter a list of integers with more than one value")
 
     high = max(nums)
 
@@ -29,7 +29,7 @@ def find_range(nums):
     return diff
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     numbers = [1, 2, 3, 4, 5]
     range_of_numbers = find_range(numbers)
-    print('The range of {} is {}'.format(numbers, range_of_numbers))
+    print("The range of {} is {}".format(numbers, range_of_numbers))

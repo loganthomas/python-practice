@@ -10,4 +10,3 @@ from collections import Counter
 
 def ordered_count(_input):
     return list(Counter(_input).items())
-

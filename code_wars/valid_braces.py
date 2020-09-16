@@ -21,9 +21,9 @@ Examples
 
 
 def validBraces(string):
-    while '()' in string or '[]' in string or '{}' in string:
-        string = string.replace('()', '').replace('[]', '').replace('{}', '')
-    return string == ''
+    while "()" in string or "[]" in string or "{}" in string:
+        string = string.replace("()", "").replace("[]", "").replace("{}", "")
+    return string == ""
 
 
 def validBraces2(string):
@@ -37,4 +37,3 @@ def validBraces2(string):
             if len(stack) == 0 or braces[stack.pop()] != character:
                 return False
     return len(stack) == 0
-

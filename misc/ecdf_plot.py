@@ -13,4 +13,3 @@ def ecdf(data):
     y = np.arange(1, n + 1) / n
 
     return x, y
-

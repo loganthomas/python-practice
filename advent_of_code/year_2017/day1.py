@@ -40,8 +40,8 @@ from pathlib import Path
 
 # No kwargs on purpose (for pytest)
 def load_data():
-    input_file_path = Path(__file__).parent.joinpath('data/day1_puzzle.txt')
-    with open(input_file_path, 'r') as input_file:
+    input_file_path = Path(__file__).parent.joinpath("data/day1_puzzle.txt")
+    with open(input_file_path, "r") as input_file:
         data = input_file.readline().strip()
 
     return data
@@ -53,7 +53,7 @@ def captcha1(data):
     # Add first digit to end
     data = data + data[0]
 
-    out = sum([int(a) for a,b in zip(data, data[1:]) if a == b])
+    out = sum([int(a) for a, b in zip(data, data[1:]) if a == b])
     return out
 
 
@@ -62,9 +62,8 @@ def captcha2(data):
     """ Assumes data is a str """
     half_point = len(data) // 2
     first_half = data[:half_point]
-    last_half  = data[half_point:]
-    comp_data  = last_half + first_half
+    last_half = data[half_point:]
+    comp_data = last_half + first_half
 
-    out = sum([int(a) for a,b in zip(data, comp_data) if a == b])
+    out = sum([int(a) for a, b in zip(data, comp_data) if a == b])
     return out
-

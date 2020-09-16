@@ -61,7 +61,7 @@ separately, then add them all up at the end.)
 from pathlib import Path
 import numpy as np
 
-data_path = Path('data/day1_puzzle.txt')
+data_path = Path("data/day1_puzzle.txt")
 
 
 def calc_fuel(data):
@@ -106,7 +106,6 @@ def part_2_answer(data_path=data_path):
 
     data = np.loadtxt(data_path)
 
-    total_fuel = int(sum(map(calc_recursive_fuel,data)))
+    total_fuel = int(sum(map(calc_recursive_fuel, data)))
 
     return total_fuel
-

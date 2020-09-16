@@ -45,18 +45,18 @@ Notes:
 def _is_prime(n):
     # Corner cases (primes should be greater than 1)
     # if (n <= 1) :
-        # return False
-    if (n <= 3) :
+    # return False
+    if n <= 3:
         return True
 
     # This is checked so that we can skip
     # middle five numbers in below loop
-    if (n % 2 == 0 or n % 3 == 0) :
+    if n % 2 == 0 or n % 3 == 0:
         return False
 
     i = 5
-    while(i * i <= n) :
-        if (n % i == 0 or n % (i + 2) == 0) :
+    while i * i <= n:
+        if n % i == 0 or n % (i + 2) == 0:
             return False
         i = i + 6
 
@@ -65,7 +65,9 @@ def _is_prime(n):
 
 def backwardsPrime(start, stop):
     # Primes where number is not equal to reverse string of number (i.e. not a palindrome)
-    potentials = [x for x in range(start, stop + 1) if _is_prime(x) and x != int(str(x)[::-1])]
+    potentials = [
+        x for x in range(start, stop + 1) if _is_prime(x) and x != int(str(x)[::-1])
+    ]
 
     # Out is potential primes where reverse string of prime is also prime
     out = [x for x in potentials if _is_prime(int(str(x)[::-1]))]
@@ -76,9 +78,12 @@ def backwardsPrime(start, stop):
 # A provided solution that mimics the initial commit... a little slower compared to above
 # I was close with initial commit!
 def _is_prime2(n):
-    return all([n % i != 0 for i in range(2,int(n**.5) + 1)])
+    return all([n % i != 0 for i in range(2, int(n ** 0.5) + 1)])
 
 
 def backwardsPrime2(start, nd):
-    return [i for i in range(start,nd + 1) if i != int(str(i)[::-1]) and _is_prime(i) and _is_prime(int(str(i)[::-1]))]
-
+    return [
+        i
+        for i in range(start, nd + 1)
+        if i != int(str(i)[::-1]) and _is_prime(i) and _is_prime(int(str(i)[::-1]))
+    ]
