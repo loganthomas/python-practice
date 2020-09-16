@@ -2,49 +2,49 @@ from collections import namedtuple
 from matplotlib import pyplot as plt
 import numpy as np
 
-Point = namedtuple('Point', ['x', 'y'])
+Point = namedtuple("Point", ["x", "y"])
 
 
 def move_right(instr, curr_pos):
-    spaces = int(instr.replace('R', ''))
+    spaces = int(instr.replace("R", ""))
     new_pos = Point(curr_pos.x + spaces, curr_pos.y)
     return new_pos
 
 
 def move_left(instr, curr_pos):
-    spaces = int(instr.replace('L', ''))
+    spaces = int(instr.replace("L", ""))
     new_pos = Point(curr_pos.x - spaces, curr_pos.y)
     return new_pos
 
 
 def move_up(instr, curr_pos):
-    spaces = int(instr.replace('U', ''))
+    spaces = int(instr.replace("U", ""))
     new_pos = Point(curr_pos.x, curr_pos.y + spaces)
     return new_pos
 
 
 def move_down(instr, curr_pos):
-    spaces = int(instr.replace('D', ''))
+    spaces = int(instr.replace("D", ""))
     new_pos = Point(curr_pos.x, curr_pos.y - spaces)
     return new_pos
 
 
 def collect_wire_points(wire_instr_list):
 
-    curr_pos = Point(0,0)
+    curr_pos = Point(0, 0)
     points = [curr_pos]
 
     for instr in wire_instr_list:
-        if instr.startswith('R'):
+        if instr.startswith("R"):
             new_pos = move_right(instr, curr_pos)
 
-        if instr.startswith('L'):
+        if instr.startswith("L"):
             new_pos = move_left(instr, curr_pos)
 
-        if instr.startswith('U'):
+        if instr.startswith("U"):
             new_pos = move_up(instr, curr_pos)
 
-        if instr.startswith('D'):
+        if instr.startswith("D"):
             new_pos = move_down(instr, curr_pos)
 
         points.append(new_pos)
@@ -58,7 +58,7 @@ def collect_wire_metapoints(wire_points):
 
     metapoints = []
     for line in lines:
-        s,e = line
+        s, e = line
 
         if s.x == e.x:
             s_i = min(s.y, e.y)
@@ -80,7 +80,7 @@ def find_intersections(wire1_metapoints, wire2_metapoints):
     intersections = wire1_metapoints.intersection(wire2_metapoints)
 
     # Ignore central point
-    intersections.discard(Point(0,0))
+    intersections.discard(Point(0, 0))
 
     return list(intersections)
 
@@ -106,12 +106,14 @@ def plot_wires(wire1_points, wire2_points, intersections, pt):
 
     fig = plt.figure()
 
-    ax = fig.add_subplot(1,1,1)
+    ax = fig.add_subplot(1, 1, 1)
 
-    ax.plot(w1_x, w1_y, marker='o', color='b', label='wire1', alpha=0.5, markersize=2)
-    ax.plot(w2_x, w2_y, marker='o', color='orange', label='wire2', alpha=0.5, markersize=2)
-    ax.scatter(int_x, int_y, marker='x', color='r', label='intersection')
-    ax.scatter(pt.x, pt.y, facecolors='none', edgecolors='g', label='closest', s=100)
+    ax.plot(w1_x, w1_y, marker="o", color="b", label="wire1", alpha=0.5, markersize=2)
+    ax.plot(
+        w2_x, w2_y, marker="o", color="orange", label="wire2", alpha=0.5, markersize=2
+    )
+    ax.scatter(int_x, int_y, marker="x", color="r", label="intersection")
+    ax.scatter(pt.x, pt.y, facecolors="none", edgecolors="g", label="closest", s=100)
 
     ax.grid(True)
     ax.set_xlim((min(w1_x + w2_x) - 1, max(w1_x + w2_x) + 1))
