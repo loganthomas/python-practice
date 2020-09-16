@@ -54,7 +54,7 @@ from pathlib import Path
 
 # No kwargs on purpose (for pytest)
 def load_data():
-    input_file_path = Path(__file__).parent.joinpath('data/day2_puzzle.txt')
+    input_file_path = Path(__file__).parent.joinpath("data/day2_puzzle.txt")
     data = np.loadtxt(input_file_path)
     return data
 
@@ -81,11 +81,10 @@ def captcha2(data):
 
         for n in sort:
             idx = sort.index(n)
-            comps = sort[idx + 1:]
+            comps = sort[idx + 1 :]
 
             for c in comps:
                 if n % c == 0:
                     out.append(n / c)
 
     return sum(out)
-
