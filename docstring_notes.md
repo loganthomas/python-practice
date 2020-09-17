@@ -13,7 +13,7 @@
 >   - [PEP 484](https://www.python.org/dev/peps/pep-0484/)
 >   - [mypy Cheatsheet](https://mypy.readthedocs.io/en/stable/cheat_sheet_py3.html)
 >   - [Google Style Python Docs (updated)](https://google.github.io/styleguide/pyguide.html)
->     - See sections `2.21 Type Annotated Code` and `3.8.3 Functions and Methods` 
+>     - See sections `2.21 Type Annotated Code` and `3.8.3 Functions and Methods`
 >   - [Good blog post](http://veekaybee.github.io/2019/07/08/python-type-hints/#:~:text=Thanks-,Introduction,adopting%20them%20into%20their%20codebase.)
 
 ## PEP 257 notes
@@ -43,7 +43,7 @@
 
         -  Optional arguments should be indicated.
         -  It is best to list each argument on a separate line.
- 
+
 
 ## Google Style Python Docstring notes
 > - There are a few recommended ways to list argument types when working with Sphinx and the extension napoleon (example `param2 (:obj:list of :obj:str)`.
