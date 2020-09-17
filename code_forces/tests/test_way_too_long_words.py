@@ -17,7 +17,7 @@ def test_abbreviate_returns_short_word(expected):
 
 
 @pytest.mark.parametrize(
-    "input, expected",
+    "input_, expected",
     [
         ("word", "word"),
         ("localization", "l10n"),
@@ -25,12 +25,12 @@ def test_abbreviate_returns_short_word(expected):
         ("pneumonoultramicroscopicsilicovolcanoconiosis", "p43s"),
     ],
 )
-def test_abbreviate_on_provided_examples(input, expected):
+def test_abbreviate_on_provided_examples(input_, expected):
     """Test expected output returned from provided examples."""
     # Setup - none necessary
 
     # Exercise
-    result = wtlw.abbreviate(input)
+    result = wtlw.abbreviate(input_)
 
     # Verify
     assert result == expected
@@ -39,7 +39,7 @@ def test_abbreviate_on_provided_examples(input, expected):
 
 
 @pytest.mark.parametrize(
-    "input, expected",
+    "input_, expected",
     [
         ("abcdefgh", "abcdefgh"),
         ("abcdefghi", "abcdefghi"),
@@ -96,12 +96,12 @@ def test_abbreviate_on_provided_examples(input, expected):
         ("yuflqboqfdt", "y9t"),
     ],
 )
-def test_abbreviate_on_extisive_test_suite(input, expected):
+def test_abbreviate_on_extisive_test_suite(input_, expected):
     """Test expected output returned from provided examples."""
     # Setup - none necessary
 
     # Exercise
-    result = wtlw.abbreviate(input)
+    result = wtlw.abbreviate(input_)
 
     # Verify
     assert result == expected
