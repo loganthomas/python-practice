@@ -16,6 +16,7 @@
 >      - See sections `2.21 Type Annotated Code` and `3.8.3 Functions and Methods`
 >    - [Good blog post](http://veekaybee.github.io/2019/07/08/python-type-hints/#:~:text=Thanks-,Introduction,adopting%20them%20into%20their%20codebase.)
 
+
 ## PEP 257 notes
   - For flowing long blocks of text with fewer structural restrictions (docstrings or comments), the line length should be limited to __72 characters__ (PEP 8).
 
