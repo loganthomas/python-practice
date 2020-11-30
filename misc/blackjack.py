@@ -1,7 +1,7 @@
 # Standard libraries
 import random
 from collections import namedtuple
-from typing import List, Tuple
+from typing import List, Optional, Tuple
 
 # Third-party libraries
 
@@ -19,9 +19,11 @@ class Deck:
         if len(self.cards) > 1:
             random.shuffle(self.cards)
 
-    def deal(self) -> Card:
+    def deal(self) -> Optional[Card]:
         """ Treat deck like stack and remove top card. """
-        return self.cards.pop(0)
+        if len(self.cards) > 1:
+            return self.cards.pop(0)
+        return None
 
 
 class Hand:
