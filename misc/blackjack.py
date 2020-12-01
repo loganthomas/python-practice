@@ -1,7 +1,7 @@
 # Standard libraries
 import random
 from collections import namedtuple
-from typing import List, Optional, Tuple
+from typing import List
 
 # Third-party libraries
 
@@ -18,12 +18,15 @@ class Deck:
     def shuffle(self) -> None:
         if len(self.cards) > 1:
             random.shuffle(self.cards)
+        else:
+            raise ValueError("No cards left in deck")
 
-    def deal(self) -> Optional[Card]:
+    def deal(self) -> Card:
         """ Treat deck like stack and remove top card. """
         if len(self.cards) > 1:
             return self.cards.pop(0)
-        return None
+        else:
+            raise ValueError("No cards left in deck")
 
 
 class Hand:
@@ -67,21 +70,14 @@ class Hand:
             print(f"Hand Total: {self.get_value()}")
 
 
-class Game:
+class BlackJack:
     def __init__(self) -> None:
-        pass
+        self.games_played = 0
+        self.wins = 0
 
-    def check_for_blackjack(self) -> Tuple[bool, bool]:
-        player = False
-        dealer = False
-
-        if self.player_hand.get_value() == 21:
-            player = True
-
-        if self.dealer_hand.get_value() == 21:
-            dealer = True
-
-        return player, dealer
+    @staticmethod
+    def check_for_blackjack(hand: Hand) -> bool:
+        return hand.get_value() == 21
 
     @staticmethod
     def display_if_blackjack(
@@ -121,7 +117,8 @@ class Game:
 
             while not game_over:
 
-                player_has_blackjack, dealer_has_blackjack = self.check_for_blackjack()
+                player_has_blackjack = self.check_for_blackjack(self.player_hand)
+                dealer_has_blackjack = self.check_for_blackjack(self.dealer_hand)
 
                 if player_has_blackjack | dealer_has_blackjack:
                     game_over = True
@@ -181,5 +178,5 @@ class Game:
 
 
 if __name__ == "__main__":
-    g = Game()
-    g.play()
+    game = BlackJack()
+    game.play()
