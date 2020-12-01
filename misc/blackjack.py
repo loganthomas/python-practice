@@ -4,7 +4,7 @@ from collections import namedtuple
 from typing import List
 
 # Third-party libraries
-
+from colorama import Fore, Style
 
 Card = namedtuple("Card", ("value", "suite"))
 
@@ -63,7 +63,7 @@ class Hand:
     def display(self) -> None:
         for i, card in enumerate(self.cards, 1):
             if (i == 1) & (self.dealer):
-                print("Card 1: hidden")
+                print(f"Card 1: {Fore.BLUE}hidden{Style.RESET_ALL}")
             else:
                 print(f"Card {i}: {card.value} of {card.suite}")
         if not self.dealer:
@@ -86,9 +86,11 @@ class BlackJack:
         if player_has_blackjack & dealer_has_black_jack:
             print("\nIt's a draw! Both you and the dealer have blackjack!")
         elif player_has_blackjack:
-            print("\nYou have blackjack! You Win!")
+            print(f"\n{Fore.GREEN}You have blackjack! You Win!{Style.RESET_ALL}")
         else:
-            print("\nDealer has blackjack! Dealer Wins! Better luck next time...")
+            print(
+                f"\n{Fore.RED}Dealer has blackjack! Dealer Wins! Better luck next time...{Style.RESET_ALL}"
+            )
 
     def check_player_bust(self) -> bool:
         return self.player_hand.get_value() > 21
@@ -97,6 +99,9 @@ class BlackJack:
         playing = True
 
         while playing:
+            self.games_played += 1
+            print(f"\n### Game {self.games_played} ###")
+
             self.deck = Deck()
             self.deck.shuffle()
 
@@ -107,7 +112,7 @@ class BlackJack:
                 self.player_hand.add_card(self.deck.deal())
                 self.dealer_hand.add_card(self.deck.deal())
 
-            print("--- Your hand ---")
+            print("\n--- Your hand ---")
             self.player_hand.display()
 
             print("\n--- Dealer hand ---")
@@ -125,6 +130,12 @@ class BlackJack:
                     self.display_if_blackjack(
                         player_has_blackjack, dealer_has_blackjack
                     )
+                    if player_has_blackjack:
+                        self.wins += 1
+
+                    # Break out of game_over loop
+                    # continue starts another loop of the while not game_over loop
+                    # since game_over set to True, it will break out of loop.
                     continue
 
                 print()
@@ -144,7 +155,9 @@ class BlackJack:
 
                     if self.check_player_bust():
                         game_over = True
-                        print("\nBust! Better luck next time...")
+                        print(
+                            f"\n{Fore.RED}Bust! Better luck next time...{Style.RESET_ALL}"
+                        )
 
                 else:
                     game_over = True
@@ -157,11 +170,14 @@ class BlackJack:
                     print(f"Dealer hand: {dealer_hand_value}")
 
                     if player_hand_value > dealer_hand_value:
-                        print("\nYou Win! Congrats!")
+                        print(f"\n{Fore.GREEN}You Win! Congrats!{Style.RESET_ALL}")
+                        self.wins += 1
                     elif player_hand_value == dealer_hand_value:
                         print("\nIt's a draw! Almost...")
                     else:
-                        print("\nDealer Wins! Better luck next time...")
+                        print(
+                            f"\n{Fore.RED}Dealer Wins! Better luck next time...{Style.RESET_ALL}"
+                        )
 
             print()
             play_again = input("Would you like to play again? [y/n]: ").lower()
@@ -171,10 +187,11 @@ class BlackJack:
 
             if play_again == "n":
                 playing = False
+                print(f"{Fore.BLUE}\n### Final Stats ###{Style.RESET_ALL}")
+                print(f"Games Played  : {self.games_played}")
+                print(f"Games Won     : {self.wins}")
+                print(f"Win Percentage: {self.wins/self.games_played*100:.2f}%")
                 print("\nThanks for playing!")
-            else:
-                print()
-                game_over = False
 
 
 if __name__ == "__main__":
