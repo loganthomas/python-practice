@@ -2,6 +2,7 @@
 import itertools
 
 # Third-party libraries
+from colorama import Fore, Style
 import pytest
 
 # Local libraries
@@ -146,5 +147,122 @@ def test_Hand_instantiation(dealer):
         assert not hand.dealer
     assert hand.cards == []
     assert hand.value == 0
+
+    # Cleanup - none necessary
+
+
+@pytest.mark.parametrize("card", [1, "a", "b", 0.59])
+def test_Hand_add_single_card(card):
+    # Setup
+    hand = blackjack.Hand()
+
+    # Exercise
+    hand.add_card(card)
+
+    # Verify
+    assert hand.cards == [card]
+
+    # Cleanup - none necessary
+
+
+@pytest.mark.parametrize("cards", [("a", "b"), (1, 0.59)])
+def test_Hand_add_multi_cards(cards):
+    # Setup
+    hand = blackjack.Hand()
+
+    # Exercise
+    for card in cards:
+        hand.add_card(card)
+
+    # Verify
+    assert hand.cards == list(cards)
+
+    # Cleanup - none necessary
+
+
+@pytest.mark.parametrize(
+    "card_values, expected_hand_value",
+    [
+        ([1, 5], 6),
+        ([7, 10], 17),
+        ([5, "Jack"], 15),
+        ([2, "Quenn"], 12),
+        ([7, "King"], 17),
+        ([10, "Ace"], 21),
+        ([30, "Ace"], 31),  # To check for Ace as value of 1
+    ],
+)
+def test_Hand_calculate_value(card_values, expected_hand_value):
+    # Setup
+    card_1 = blackjack.Card(card_values[0], "diamonds")
+    card_2 = blackjack.Card(card_values[1], "diamonds")
+
+    hand = blackjack.Hand()
+    hand.add_card(card_1)
+    hand.add_card(card_2)
+
+    # Exercise
+    hand.calculate_value()
+
+    # Verify
+    assert hand.value == expected_hand_value
+
+    # Cleanup - none necessary
+
+
+@pytest.mark.parametrize(
+    "card_values, expected_hand_value",
+    [
+        ([3, 5], 8),
+        ([9, 10], 19),
+        ([10, "Jack"], 20),
+        ([5, "Quenn"], 15),
+        (["Ace", "King"], 21),
+        ([10, "Ace"], 21),
+        ([30, "Ace"], 31),  # To check for Ace as value of 1
+    ],
+)
+def test_Hand_get_value(card_values, expected_hand_value):
+    # Setup
+    card_1 = blackjack.Card(card_values[0], "diamonds")
+    card_2 = blackjack.Card(card_values[1], "diamonds")
+
+    hand = blackjack.Hand()
+    hand.add_card(card_1)
+    hand.add_card(card_2)
+
+    # Exercise
+    result = hand.get_value()
+
+    # Verify
+    assert result == expected_hand_value
+    assert result == hand.value
+
+    # Cleanup - none necessary
+
+
+@pytest.mark.parametrize("dealer", [True, False], ids=["dealer-True", "dealer-False"])
+def test_Hand_display(dealer, capsys):
+    # Setup
+    card_1 = blackjack.Card(5, "diamonds")
+    card_2 = blackjack.Card("King", "diamonds")
+
+    hand = blackjack.Hand(dealer=dealer)
+    hand.add_card(card_1)
+    hand.add_card(card_2)
+
+    expected_out = "Card 1: 5 of diamonds\nCard 2: King of diamonds\nHand Total: 15\n"
+
+    if dealer:
+        expected_out = (
+            f"Card 1: {Fore.BLUE}hidden{Style.RESET_ALL}\nCard 2: King of diamonds\n"
+        )
+
+    # Exercise
+    hand.display()
+
+    # Verify
+    captured = capsys.readouterr()
+    assert captured.out == expected_out
 
     # Cleanup - none necessary
