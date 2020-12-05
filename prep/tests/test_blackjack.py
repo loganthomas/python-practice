@@ -266,3 +266,39 @@ def test_Hand_display(dealer, capsys):
     assert captured.out == expected_out
 
     # Cleanup - none necessary
+
+
+def test_BlackJack_instantiation():
+    # Setup - none necessary
+
+    # Exercise
+    game = blackjack.BlackJack()
+
+    # Verify
+    assert game.games_played == 0
+    assert game.wins == 0
+
+    # Cleanup - none necessary
+
+
+def test_BlackJack_check_for_blackjack():
+    # Setup
+    hand_non_blackjack = blackjack.Hand()
+    hand_non_blackjack.add_card(blackjack.Card(10, "diamonds"))
+    hand_non_blackjack.add_card(blackjack.Card(5, "hearts"))
+
+    hand_blackjack = blackjack.Hand()
+    hand_blackjack.add_card(blackjack.Card(10, "diamonds"))
+    hand_blackjack.add_card(blackjack.Card("Ace", "hearts"))
+
+    game = blackjack.BlackJack()
+
+    # Exercise
+    result_non_blackjack = game.check_for_blackjack(hand_non_blackjack)
+    result_blackjack = game.check_for_blackjack(hand_blackjack)
+
+    # Verify
+    assert not result_non_blackjack
+    assert result_blackjack
+
+    # Cleanup - none necessary
