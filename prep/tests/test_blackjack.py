@@ -335,9 +335,6 @@ def test_BlackJack_display_if_blackjack(
     if dealer_has_blackjack & (not player_has_blackjack):
         expected_out = f"\n{Fore.RED}Dealer has blackjack! Dealer Wins! Better luck next time...{Style.RESET_ALL}\n"
 
-    if (not player_has_blackjack) & (not dealer_has_blackjack):
-        expected_out = None
-
     # Exercise
     game.display_if_blackjack(player_has_blackjack, dealer_has_blackjack)
 
