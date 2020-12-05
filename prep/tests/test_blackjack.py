@@ -130,3 +130,21 @@ def test_Deck_deal():
     assert card4.suite == "clubs"
 
     # Cleanup - none necessary
+
+
+@pytest.mark.parametrize("dealer", [True, False], ids=["dealer-True", "dealer-False"])
+def test_Hand_instantiation(dealer):
+    # Setup - none necessary
+
+    # Exercise
+    hand = blackjack.Hand(dealer=dealer)
+
+    # Verify
+    if dealer:
+        assert hand.dealer
+    else:
+        assert not hand.dealer
+    assert hand.cards == []
+    assert hand.value == 0
+
+    # Cleanup - none necessary
