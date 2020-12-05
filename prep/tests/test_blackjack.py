@@ -5,15 +5,15 @@ import itertools
 import pytest
 
 # Local libraries
-from misc.blackjack import BlackJack, Card, Deck, Hand
+from prep import blackjack
 
 
 def test_Card_instantiation():
     # Setup - none necessary
 
     # Exercise
-    card = Card(2, "hearts")
-    face_card = Card("King", "diamonds")
+    card = blackjack.Card(2, "hearts")
+    face_card = blackjack.Card("King", "diamonds")
 
     # Verify
     assert hasattr(card, "value")
@@ -35,7 +35,7 @@ def test_Deck_instantiation():
     # Setup - none necessary
 
     # Exercise
-    deck = Deck()
+    deck = blackjack.Deck()
 
     # Verify
     assert deck.suites == ["hearts", "diamonds", "spades", "clubs"]
@@ -51,7 +51,7 @@ def test_Deck_instantiation():
 
 def test_Deck_shuffle_raises_error_with_no_cards():
     # Setup
-    deck = Deck()
+    deck = blackjack.Deck()
     deck.cards.clear()
 
     # Exercise
@@ -66,7 +66,7 @@ def test_Deck_shuffle_raises_error_with_no_cards():
 
 def test_Deck_shuffle():
     # Setup
-    deck = Deck()
+    deck = blackjack.Deck()
     ordered_cards = deck.cards.copy()
 
     # check that ordered cards are ordered by value
@@ -92,7 +92,7 @@ def test_Deck_shuffle():
 
 def test_Deck_deal_raises_error_with_no_cards():
     # Setup
-    deck = Deck()
+    deck = blackjack.Deck()
     deck.cards.clear()
 
     # Exercise
@@ -107,7 +107,7 @@ def test_Deck_deal_raises_error_with_no_cards():
 
 def test_Deck_deal():
     # Setup
-    deck = Deck()
+    deck = blackjack.Deck()
 
     # Exercise
     card1 = deck.deal()
