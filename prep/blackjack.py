@@ -1,3 +1,12 @@
+"""
+Object Oriented Programming
+---------------------------
+
+How would you design a card game (blackjack) using OOP techniques?
+    - What classes, methods, and attributes do you need for the game?
+"""
+
+
 # Standard libraries
 import random
 from collections import namedtuple
