@@ -302,3 +302,87 @@ def test_BlackJack_check_for_blackjack():
     assert result_blackjack
 
     # Cleanup - none necessary
+
+
+@pytest.mark.parametrize(
+    "player_has_blackjack, dealer_has_blackjack",
+    [
+        (True, True),
+        (True, False),
+        (False, True),
+        # display_if_blackjack() is only called when either dealer or player has blackjack
+        # (False, False),
+    ],
+    ids=[
+        "player-True_dealer-True",
+        "player-True_dealer-False",
+        "player-False_dealer-True",
+        # 'player-False_dealer-False',
+    ],
+)
+def test_BlackJack_display_if_blackjack(
+    player_has_blackjack, dealer_has_blackjack, capsys
+):
+    # Setup
+    game = blackjack.BlackJack()
+
+    if player_has_blackjack & dealer_has_blackjack:
+        expected_out = "\nIt's a draw! Both you and the dealer have blackjack!\n"
+
+    if player_has_blackjack & (not dealer_has_blackjack):
+        expected_out = f"\n{Fore.GREEN}You have blackjack! You Win!{Style.RESET_ALL}\n"
+
+    if dealer_has_blackjack & (not player_has_blackjack):
+        expected_out = f"\n{Fore.RED}Dealer has blackjack! Dealer Wins! Better luck next time...{Style.RESET_ALL}\n"
+
+    if (not player_has_blackjack) & (not dealer_has_blackjack):
+        expected_out = None
+
+    # Exercise
+    game.display_if_blackjack(player_has_blackjack, dealer_has_blackjack)
+
+    # Verify
+    captured = capsys.readouterr()
+    assert captured.out == expected_out
+
+    # Cleanup - none necessary
+
+
+@pytest.mark.parametrize(
+    "cards, expected_bust",
+    [
+        (
+            [
+                blackjack.Card(5, "hearts"),
+                blackjack.Card("Ace", "diamonds"),
+                blackjack.Card(5, "spades"),
+            ],
+            False,
+        ),
+        (
+            [
+                blackjack.Card(10, "clubs"),
+                blackjack.Card(10, "spades"),
+                blackjack.Card(5, "diamonds"),
+            ],
+            True,
+        ),
+    ],
+    ids=["player-non-bust", "player-bust"],
+)
+def test_BlackJack_check_player_bust(cards, expected_bust):
+    # Setup
+    game = blackjack.BlackJack()
+
+    game.player_hand = blackjack.Hand()
+
+    for card in cards:
+        game.player_hand.add_card(card)
+
+    # Exercise
+    result = game.check_player_bust()
+
+    # Verify
+    assert result is expected_bust
+
+    # Cleanup - none necessary
