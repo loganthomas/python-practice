@@ -52,25 +52,23 @@ def is_palindrome_mid(s: str) -> bool:
     return True
 
 
-"""
-Generate Palindrome
--------------------
-Now, write a function that will generate a palindrome given a base string.
-Use the function you created above to check your new function
+# Generate Palindrome
+# -------------------
+# Now, write a function that will generate a palindrome given a base string.
+# Use the function you created above to check your new function
 
-Notes
------
-s = "aaaaaabbbbbcccccdddddeeeee"
+# Notes
+# -----
+# s = "aaaaaabbbbbcccccdddddeeeee"
 
-%timeit palindrome.generate_palindrome_slicing(s)
-296 ns ± 1.25 ns per loop (mean ± std. dev. of 7 runs, 1000000 loops each)
+# %timeit palindrome.generate_palindrome_slicing(s)
+# 296 ns ± 1.25 ns per loop (mean ± std. dev. of 7 runs, 1000000 loops each)
 
-%timeit palindrome.generate_palindrome_list(s)
-3.4 µs ± 34.2 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each)
+# %timeit palindrome.generate_palindrome_list(s)
+# 3.4 µs ± 34.2 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each)
 
-%timeit palindrome.generate_palindrome_build(s)
-2.69 µs ± 10.3 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each)
-"""
+# %timeit palindrome.generate_palindrome_build(s)
+# 2.69 µs ± 10.3 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each)
 
 
 def generate_palindrome_slicing(s: str) -> str:
