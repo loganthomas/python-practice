@@ -1,6 +1,6 @@
 """
 Check Palindrome
-----------
+----------------
 
 A string of letters is a palindrome if it is identical to it's reversion.
 
