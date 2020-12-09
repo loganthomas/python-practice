@@ -10,6 +10,14 @@ which are a multiple of both 3 and 5 it should output "FizzBuzz".
 
 Notes
 -----
+%timeit fizzbuzz.fizzbuzz_naive(1000)
+227 µs ± 997 ns per loop (mean ± std. dev. of 7 runs, 1000 loops each)
+
+%timeit fizzbuzz.fizzbuzz_concat(1000)
+238 µs ± 5.2 µs per loop (mean ± std. dev. of 7 runs, 1000 loops each)
+
+%timeit fizzbuzz.fizzbuzz_hash(1000)
+376 µs ± 708 ns per loop (mean ± std. dev. of 7 runs, 1000 loops each)
 """
 from typing import List
 
