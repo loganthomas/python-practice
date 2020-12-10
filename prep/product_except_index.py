@@ -21,7 +21,7 @@ Notes
 -----
 """
 # Standard libraries
-from typing import List, Optional
+from typing import List
 
 
 def find_products_with_division(nums: List[int]) -> List[int]:
