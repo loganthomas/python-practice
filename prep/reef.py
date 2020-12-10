@@ -71,11 +71,11 @@ if __name__ == "__main__":
     print()
 
     # Unique Case...
-    sys.stdin = io.StringIO('1,"2",3\n4,"5,6", "7", 8, "9"')
+    sys.stdin = io.StringIO('1,"2",3\n4,"5,6","7",8,"9"')
     print("Input:")
     for line in sys.stdin.readlines():
         print(line.strip())
     print("\nOutput:")
-    sys.stdin = io.StringIO('1,"2",3\n4,"5,6", "7", 8, "9"')
+    sys.stdin = io.StringIO('1,"2",3\n4,"5,6","7",8,"9"')
     main()
     print()
