@@ -19,10 +19,11 @@ RANDOM_UNSORTED = list(np.random.randint(0, 100, 50))
     ids=["simple-unsorted", "simple-sorted", "random-unsorted"],
 )
 def test_bubble_sort_naive(nums: List[int]) -> None:
-    # Setup - none necessary
+    # Setup
+    input_ = nums.copy()
 
     # Exercise
-    result = sort_bubble.bubble_sort_naive(nums)
+    result = sort_bubble.bubble_sort_naive(input_)
 
     # Verify
     assert result == sorted(nums)
@@ -36,10 +37,11 @@ def test_bubble_sort_naive(nums: List[int]) -> None:
     ids=["simple-unsorted", "simple-sorted", "random-unsorted"],
 )
 def test_bubble_sort(nums: List[int]) -> None:
-    # Setup - none necessary
+    # Setup
+    input_ = nums.copy()
 
     # Exercise
-    result = sort_bubble.bubble_sort(nums)
+    result = sort_bubble.bubble_sort(input_)
 
     # Verify
     assert result == sorted(nums)
@@ -53,10 +55,11 @@ def test_bubble_sort(nums: List[int]) -> None:
     ids=["simple-unsorted", "simple-sorted", "random-unsorted"],
 )
 def test_bubble_sort_early_stop(nums: List[int]) -> None:
-    # Setup - none necessary
+    # Setup
+    input_ = nums.copy()
 
     # Exercise
-    result = sort_bubble.bubble_sort_early_stop(nums)
+    result = sort_bubble.bubble_sort_early_stop(input_)
 
     # Verify
     assert result == sorted(nums)
