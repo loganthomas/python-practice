@@ -25,7 +25,7 @@ def test_bubble_sort_naive(nums: List[int]) -> None:
     result = sort_bubble.bubble_sort_naive(nums)
 
     # Verify
-    assert sorted(nums) == result
+    assert result == sorted(nums)
 
     # Cleanup - none necessary
 
@@ -42,7 +42,7 @@ def test_bubble_sort(nums: List[int]) -> None:
     result = sort_bubble.bubble_sort(nums)
 
     # Verify
-    assert sorted(nums) == result
+    assert result == sorted(nums)
 
     # Cleanup - none necessary
 
@@ -59,6 +59,6 @@ def test_bubble_sort_early_stop(nums: List[int]) -> None:
     result = sort_bubble.bubble_sort_early_stop(nums)
 
     # Verify
-    assert sorted(nums) == result
+    assert result == sorted(nums)
 
     # Cleanup - none necessary

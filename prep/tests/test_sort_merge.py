@@ -25,6 +25,6 @@ def test_merge_sort(nums: List[int]) -> None:
     result = sort_merge.merge_sort(nums)
 
     # Verify
-    assert sorted(nums) == result
+    assert result == sorted(nums)
 
     # Cleanup - none necessary
