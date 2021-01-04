@@ -1,3 +1,5 @@
+import ast
+
 # Third-party libraries
 import pytest
 from typing import List
@@ -77,7 +79,9 @@ def test_plot_rects(rec1: List, rec2: List, expected: bool) -> None:
 
     # Exercise
     fig = rectangle_overlap.plot_rects(rect1, rect2)
-    result = eval(fig.axes[0].get_title().replace("Rectangle Overlap: ", ""))
+    result = ast.literal_eval(
+        fig.axes[0].get_title().replace("Rectangle Overlap: ", "")
+    )
 
     # Verify
     assert result == expected
