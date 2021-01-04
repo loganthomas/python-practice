@@ -39,18 +39,6 @@ from matplotlib.patches import Rectangle
 
 Rect = namedtuple("Rect", ("bl_x", "bl_y", "tr_x", "tr_y"))
 
-rect1 = Rect(0, 0, 2, 2)
-rect2 = Rect(1, 1, 3, 3)
-
-rect1 = Rect(0, 0, 1, 1)
-rect2 = Rect(1, 0, 2, 1)
-
-rect1 = Rect(0, 0, 1, 1)
-rect2 = Rect(2, 2, 3, 3)
-
-rect1 = Rect(0, 0, 10, 10)
-rect2 = Rect(5, 0, 15, 5)
-
 
 def is_overlap(rect1: Rect, rect2: Rect) -> bool:
     # Think min of rect1 and max of rect2
