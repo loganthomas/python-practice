@@ -1,0 +1,10 @@
+[flake8]
+max-line-length = 100
+select = C,E,F,W,B,B950
+extend-ignore = E203,E501,W503
+
+# For flake8 < 4.0.0.
+# This lives at ~/.config/.flake8
+# but has to be in ~ for flake8 to find it
+# Use: ln -s ~/.config/.flake8 ~/.flake8
+# For flake8 > 4.0.0 copy to project dir
