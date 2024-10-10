@@ -2,7 +2,7 @@ colorama
 pandas
 numpy
 pytest
-pytest-cov<2.6.0
+pytest-cov
 codecov
 matplotlib
 pytest-mpl
