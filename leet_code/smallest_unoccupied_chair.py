@@ -101,7 +101,6 @@ def get_chair(arrivals, departures, target):
 # targetFriend = 6
 # expected = 2
 
-# Standard libraries
 # Provided Solution
 from heapq import heappop, heappush
 
@@ -143,7 +142,6 @@ def smallest_chair(times, target):
         heappush(leave_times, (leaving, heappop(available)))
 
 
-# Standard libraries
 # Updated Provided Solution (using PriorityQueue)
 from queue import PriorityQueue
 

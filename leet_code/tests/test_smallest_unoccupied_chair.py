@@ -1,7 +1,5 @@
-# Standard libraries
 import unittest
 
-# Local libraries
 from leet_code import smallest_unoccupied_chair
 
 
