@@ -28,13 +28,13 @@ def compare_lists(a, b):
     return in_common
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     list_1 = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]
     list_2 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
     in_common = compare_lists(list_1, list_2)
-    print("{} is the intersection of {} and {}".format(in_common, list_1, list_2))
+    print('{} is the intersection of {} and {}'.format(in_common, list_1, list_2))
 
     list_3 = [1, 1, 1]
     list_4 = [1, 2, 3, 4, 5]
     in_common = compare_lists(list_3, list_4)
-    print("{} is the intersection of {} and {}".format(in_common, list_3, list_4))
+    print('{} is the intersection of {} and {}'.format(in_common, list_3, list_4))

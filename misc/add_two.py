@@ -26,9 +26,9 @@ def add_two(a, b):
         print(e)
 
 
-if __name__ == "__main__":
-    val1 = input("Enter value 1: ")
-    val2 = input("Enter value 2: ")
+if __name__ == '__main__':
+    val1 = input('Enter value 1: ')
+    val2 = input('Enter value 2: ')
     added = add_two(val1, val2)
     if added:
-        print("{} plus {} is {}".format(val1, val2, added))
+        print('{} plus {} is {}'.format(val1, val2, added))

@@ -3,6 +3,7 @@ Ensure that all .py files in code_wars have a test file as well
 """
 
 from pathlib import Path
+
 from code_wars import ensure_tests_exist
 
 
@@ -22,4 +23,3 @@ def test_exists_for_all_files():
     assert code_wars_files == test_files
 
     # Cleanup - none necessary
-

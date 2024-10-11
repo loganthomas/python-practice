@@ -1,15 +1,17 @@
-from advent_of_code.year_2019 import day2
 from pathlib import Path
+
 import pytest
+
+from advent_of_code.year_2019 import day2
 
 
 def test_day2_part1_perform_opr_add():
     # Setup
-    data = [1,2,3,2]
-    expected = [1,2,5,2]
+    data = [1, 2, 3, 2]
+    expected = [1, 2, 5, 2]
 
     # Exercise
-    result = day2.perform_opr(data,0)
+    result = day2.perform_opr(data, 0)
 
     # Verify
     assert result == expected
@@ -19,11 +21,11 @@ def test_day2_part1_perform_opr_add():
 
 def test_day2_part1_perform_opr_mult():
     # Setup
-    data = [2,2,3,2]
-    expected = [2,2,6,2]
+    data = [2, 2, 3, 2]
+    expected = [2, 2, 6, 2]
 
     # Exercise
-    result = day2.perform_opr(data,0)
+    result = day2.perform_opr(data, 0)
 
     # Verify
     assert result == expected
@@ -33,11 +35,11 @@ def test_day2_part1_perform_opr_mult():
 
 def test_day2_part1_perform_opr_fail():
     # Setup
-    data = [11,2,3,2]
+    data = [11, 2, 3, 2]
 
     # Exercise
     with pytest.raises(ValueError) as e:
-        day2.perform_opr(data,0)
+        day2.perform_opr(data, 0)
 
     # Verify
     assert e.type == ValueError
@@ -48,11 +50,11 @@ def test_day2_part1_perform_opr_fail():
 
 day2_provided_data = [
     # data                         , expected
-    ([1,9,10,3,2,3,11,0,99,30,40,50], [3500,9,10,70,2,3,11,0,99,30,40,50]),
-    ([1,0,0,0,99], [2,0,0,0,99]),
-    ([2,3,0,3,99], [2,3,0,6,99]),
-    ([2,4,4,5,99,0], [2,4,4,5,99,9801]),
-    ([1,1,1,4,99,5,6,0,99], [30,1,1,4,2,5,6,0,99]),
+    ([1, 9, 10, 3, 2, 3, 11, 0, 99, 30, 40, 50], [3500, 9, 10, 70, 2, 3, 11, 0, 99, 30, 40, 50]),
+    ([1, 0, 0, 0, 99], [2, 0, 0, 0, 99]),
+    ([2, 3, 0, 3, 99], [2, 3, 0, 6, 99]),
+    ([2, 4, 4, 5, 99, 0], [2, 4, 4, 5, 99, 9801]),
+    ([1, 1, 1, 4, 99, 5, 6, 0, 99], [30, 1, 1, 4, 2, 5, 6, 0, 99]),
 ]
 
 
@@ -85,11 +87,11 @@ def test_day2_part1_answer():
 
 def test_day2_part2_perform_opr_fail():
     # Setup
-    data_tuple = day2.instr_tuple(42,2,3,2)
+    data_tuple = day2.instr_tuple(42, 2, 3, 2)
 
     # Exercise
     with pytest.raises(ValueError) as e:
-        day2.perform_tuple_opr(data_tuple,0)
+        day2.perform_tuple_opr(data_tuple, 0)
 
     # Verify
     assert e.type == ValueError
@@ -124,5 +126,3 @@ def test_day2_part2_answer():
     assert result == expected
 
     # Cleanup - none necessary
-
-

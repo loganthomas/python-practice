@@ -24,7 +24,7 @@ and doesn't contain any leading zeroes.
 Thus, "localization" will be spelt as "l10n", and "internationalization"
  will be spelt as "i18n".
 
-You are suggested to automatize the process of changing the words with
+You are suggested to automate the process of changing the words with
 abbreviations. At that all too long words should be replaced by the
 abbreviation and the words that are not too long should not undergo
 any changes.
@@ -61,7 +61,7 @@ p43s
 def abbreviate(word: str) -> str:
     if len(word) > 10:
         s, *rest, e = word
-        return "".join((s, str(len(rest)), e))
+        return ''.join((s, str(len(rest)), e))
 
     return word
 

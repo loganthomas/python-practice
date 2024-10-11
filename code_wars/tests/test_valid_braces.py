@@ -18,9 +18,10 @@ Examples
 "[(])"     =>  False
 "[({})](]" =>  False
 """
-import pytest
-from code_wars import valid_braces
 
+import pytest
+
+from code_wars import valid_braces
 
 vaild_examples = [
     '()',
@@ -94,4 +95,3 @@ def test_validBraces2_with_invalid_examples(string):
     assert result == expected
 
     # Cleanup - none necessary
-

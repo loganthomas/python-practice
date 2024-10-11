@@ -21,14 +21,14 @@ Examples
 
 
 def validBraces(string):
-    while "()" in string or "[]" in string or "{}" in string:
-        string = string.replace("()", "").replace("[]", "").replace("{}", "")
-    return string == ""
+    while '()' in string or '[]' in string or '{}' in string:
+        string = string.replace('()', '').replace('[]', '').replace('{}', '')
+    return string == ''
 
 
 def validBraces2(string):
-    """ Another solution possibility. """
-    braces = {"(": ")", "[": "]", "{": "}"}
+    """Another solution possibility."""
+    braces = {'(': ')', '[': ']', '{': '}'}
     stack = []
     for character in string:
         if character in braces.keys():

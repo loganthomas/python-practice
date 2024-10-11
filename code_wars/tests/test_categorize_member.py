@@ -23,14 +23,19 @@ the respective member is to be placed in the senior or open category.
 Example Output
 ["Open", "Open", "Senior", "Open", "Open", "Senior"]
 """
+
 import pytest
+
 from code_wars import categorize_member
 
 
-@pytest.mark.parametrize('data,expected', [
-    [ [[45, 12], [55, 21], [19, -2], [104, 20]], ['Open', 'Senior', 'Open'  , 'Senior'] ],
-    [ [[16, 23], [73,  1], [56, 20], [1,   -1]], ['Open', 'Open'  , 'Senior', 'Open'  ] ],
-])
+@pytest.mark.parametrize(
+    'data,expected',
+    [
+        [[[45, 12], [55, 21], [19, -2], [104, 20]], ['Open', 'Senior', 'Open', 'Senior']],
+        [[[16, 23], [73, 1], [56, 20], [1, -1]], ['Open', 'Open', 'Senior', 'Open']],
+    ],
+)
 def test_openOrSenior(data, expected):
     # Setup
     expected = expected
@@ -42,4 +47,3 @@ def test_openOrSenior(data, expected):
     assert result == expected
 
     # Cleanup - none necessary
-

@@ -20,6 +20,7 @@ by calculating:
 Notes
 -----
 """
+
 # Standard libraries
 from typing import List
 

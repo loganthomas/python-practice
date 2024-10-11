@@ -114,14 +114,14 @@ in the program (your puzzle input) - in other words, don't reuse memory from a p
 Find the input noun and verb that cause the program to produce the output 19690720.
 What is 100 * noun + verb? (For example, if noun=12 and verb=2, the answer would be 1202.)
 """
-from pathlib import Path
-from collections import namedtuple
 
-data_path = Path("data/day2_puzzle.txt")
+from collections import namedtuple
+from pathlib import Path
+
+data_path = Path('data/day2_puzzle.txt')
 
 
 def perform_opr(data_list, index):
-
     opr, n1_index, n2_index, ans_index = data_list[index : index + 4]
 
     if opr == 1:
@@ -140,7 +140,6 @@ def perform_opr(data_list, index):
 
 
 def update_list(data_list):
-
     # start at first element
     index = 0
 
@@ -156,7 +155,7 @@ def part_1_answer(data_path=data_path):
     text = data_path.read_text().strip()
 
     # Convert to list of ints
-    data_list = [*map(int, text.split(","))]
+    data_list = [*map(int, text.split(','))]
 
     # Replace position 1 with 12 and replace position 2 with 2
     data_list[1] = 12
@@ -172,29 +171,20 @@ def part_1_answer(data_path=data_path):
 
 # Part 2
 instr_tuple = namedtuple(
-    typename="instruction",
-    field_names=["opcode", "param1_n1_index", "param2_n2_index", "param3_ans_index"],
+    typename='instruction',
+    field_names=['opcode', 'param1_n1_index', 'param2_n2_index', 'param3_ans_index'],
 )
 
 
 def perform_tuple_opr(current_tuple, data_list):
-
     if current_tuple.opcode == 1:
-        ans = (
-            data_list[current_tuple.param1_n1_index]
-            + data_list[current_tuple.param2_n2_index]
-        )
+        ans = data_list[current_tuple.param1_n1_index] + data_list[current_tuple.param2_n2_index]
 
     elif current_tuple.opcode == 2:
-        ans = (
-            data_list[current_tuple.param1_n1_index]
-            * data_list[current_tuple.param2_n2_index]
-        )
+        ans = data_list[current_tuple.param1_n1_index] * data_list[current_tuple.param2_n2_index]
 
     else:
-        raise ValueError(
-            f"Did not recognize opcode={current_tuple.opcode} as '1', '2', or '99'"
-        )
+        raise ValueError(f"Did not recognize opcode={current_tuple.opcode} as '1', '2', or '99'")
 
     # Update ans in data_list
     data_list[current_tuple.param3_ans_index] = ans
@@ -203,12 +193,10 @@ def perform_tuple_opr(current_tuple, data_list):
 
 
 def update_list_using_tuple(data_list):
-
     # start at first element
     instruction_pointer = 0
 
     while data_list[instruction_pointer] != 99:
-
         opcode, n1_index, n2_index, ans_index = data_list[
             instruction_pointer : instruction_pointer + 4
         ]
@@ -227,7 +215,7 @@ def part_2_answer(data_path=data_path, expected=19690720):
     text = data_path.read_text().strip()
 
     # Convert to list of ints
-    data_list = [*map(int, text.split(","))]
+    data_list = [*map(int, text.split(','))]
 
     # noun and verb between 0,99 inclusive
     for noun in range(100):

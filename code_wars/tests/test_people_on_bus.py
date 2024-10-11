@@ -17,18 +17,20 @@ So the return integer can't be negative.
 
 The second value in the first integer array is 0, since the bus is empty in the first bus stop.
 """
+
 import pytest
+
 from code_wars import people_on_bus
 
 
-@pytest.mark.parametrize('bus_stops,expected', [
-
-    ([ [10,0], [3,5], [5,8] ]                        , 5) ,
-
-    ([ [3,0] , [9,1], [4,10], [12,2], [6,1], [7,10] ], 17),
-
-    ([ [3,0] , [9,1], [4,8] , [12,2], [6,1], [7,8]  ], 21),
-])
+@pytest.mark.parametrize(
+    'bus_stops,expected',
+    [
+        ([[10, 0], [3, 5], [5, 8]], 5),
+        ([[3, 0], [9, 1], [4, 10], [12, 2], [6, 1], [7, 10]], 17),
+        ([[3, 0], [9, 1], [4, 8], [12, 2], [6, 1], [7, 8]], 21),
+    ],
+)
 def test_people_on_bus(bus_stops, expected):
     # Setup
     expected = expected
@@ -40,4 +42,3 @@ def test_people_on_bus(bus_stops, expected):
     assert result == expected
 
     # Cleanup - none necessary
-

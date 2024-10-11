@@ -19,35 +19,36 @@ backwardsPrime(2, 100)      => [13, 17, 31, 37, 71, 73, 79, 97]
 backwardsPrime(9900, 10000) => [9923, 9931, 9941, 9967]
 backwardsPrime(501, 599)    => []
 """
-import pytest
-from code_wars import backwards_primes
 
+import pytest
+
+from code_wars import backwards_primes
 
 # (start, stop, expected)
 prime_test_cases = [
-    (2        , 100,       [ 13, 17, 31, 37, 71, 73, 79, 97]),
-    (9900     , 10000,     [ 9923, 9931, 9941, 9967]),
-    (7000     , 7100,      [ 7027, 7043, 7057]),
-    (70000    , 70245,     [ 70001, 70009, 70061, 70079, 70121, 70141, 70163, 70241]),
-    (70485    , 70600,     [ 70489, 70529, 70573, 70589]),
-    (109500   , 109700,    [ 109537, 109579, 109583, 109609, 109663]),
-    (1095000  , 1095403,   [ 1095047, 1095209, 1095319, 1095403]),
-    (100      , 403,       [ 107, 113, 149, 157, 167, 179, 199, 311, 337, 347, 359, 389]),
-    (7048500  , 7048600,   [ 7048519, 7048579]),
-    (1048500  , 1048600,   [ 1048571, 1048583]),
-    (1000001  , 1000100,   [ 1000033, 1000037, 1000039]),
-    (700000008, 700000050, [ 700000031]),
+    (2, 100, [13, 17, 31, 37, 71, 73, 79, 97]),
+    (9900, 10000, [9923, 9931, 9941, 9967]),
+    (7000, 7100, [7027, 7043, 7057]),
+    (70000, 70245, [70001, 70009, 70061, 70079, 70121, 70141, 70163, 70241]),
+    (70485, 70600, [70489, 70529, 70573, 70589]),
+    (109500, 109700, [109537, 109579, 109583, 109609, 109663]),
+    (1095000, 1095403, [1095047, 1095209, 1095319, 1095403]),
+    (100, 403, [107, 113, 149, 157, 167, 179, 199, 311, 337, 347, 359, 389]),
+    (7048500, 7048600, [7048519, 7048579]),
+    (1048500, 1048600, [1048571, 1048583]),
+    (1000001, 1000100, [1000033, 1000037, 1000039]),
+    (700000008, 700000050, [700000031]),
 ]
 
 empty_test_cases = [
-    (501  , 599,   [ ]),
-    (60000, 70000, [ ]),
-    (400  , 503,   [ ]),
+    (501, 599, []),
+    (60000, 70000, []),
+    (400, 503, []),
 ]
 
 
 @pytest.mark.parametrize('start,stop,expected', prime_test_cases)
-def test_correct_list_of_primes_backwardsPrime(start,stop,expected):
+def test_correct_list_of_primes_backwardsPrime(start, stop, expected):
     """
     Test that backwardsPrime correctly identifies primes within start,stop range
     """
@@ -55,7 +56,7 @@ def test_correct_list_of_primes_backwardsPrime(start,stop,expected):
     expected = expected
 
     # Exercise
-    result = backwards_primes.backwardsPrime(start,stop)
+    result = backwards_primes.backwardsPrime(start, stop)
 
     # Verify
     assert result == expected
@@ -64,7 +65,7 @@ def test_correct_list_of_primes_backwardsPrime(start,stop,expected):
 
 
 @pytest.mark.parametrize('start,stop,expected', empty_test_cases)
-def test_correct_empty_list_backwardsPrime(start,stop,expected):
+def test_correct_empty_list_backwardsPrime(start, stop, expected):
     """
     Test that backwardsPrime correctly identifies no primes within start,stop range
     """
@@ -72,7 +73,7 @@ def test_correct_empty_list_backwardsPrime(start,stop,expected):
     expected = expected
 
     # Exercise
-    result = backwards_primes.backwardsPrime(start,stop)
+    result = backwards_primes.backwardsPrime(start, stop)
 
     # Verify
     assert result == expected
@@ -81,7 +82,7 @@ def test_correct_empty_list_backwardsPrime(start,stop,expected):
 
 
 @pytest.mark.parametrize('start,nd,expected', prime_test_cases)
-def test_correct_list_of_primes_backwardsPrime2(start,nd,expected):
+def test_correct_list_of_primes_backwardsPrime2(start, nd, expected):
     """
     Test that backwardsPrime correctly identifies primes within start,stop range
     """
@@ -89,7 +90,7 @@ def test_correct_list_of_primes_backwardsPrime2(start,nd,expected):
     expected = expected
 
     # Exercise
-    result = backwards_primes.backwardsPrime2(start,nd)
+    result = backwards_primes.backwardsPrime2(start, nd)
 
     # Verify
     assert result == expected
@@ -98,7 +99,7 @@ def test_correct_list_of_primes_backwardsPrime2(start,nd,expected):
 
 
 @pytest.mark.parametrize('start,nd,expected', empty_test_cases)
-def test_correct_empty_list_backwardsPrime2(start,nd,expected):
+def test_correct_empty_list_backwardsPrime2(start, nd, expected):
     """
     Test that backwardsPrime correctly identifies no primes within start,stop range
     """
@@ -106,7 +107,7 @@ def test_correct_empty_list_backwardsPrime2(start,nd,expected):
     expected = expected
 
     # Exercise
-    result = backwards_primes.backwardsPrime2(start,nd)
+    result = backwards_primes.backwardsPrime2(start, nd)
 
     # Verify
     assert result == expected
@@ -114,8 +115,8 @@ def test_correct_empty_list_backwardsPrime2(start,nd,expected):
     # Cleanup - none necessary
 
 
-primes     = [2, 3, 5, 7, 11, 13, 17, 19]
-non_primes = [x for x in range(2,21) if x not in primes]
+primes = [2, 3, 5, 7, 11, 13, 17, 19]
+non_primes = [x for x in range(2, 21) if x not in primes]
 
 
 @pytest.mark.parametrize('n', primes)
@@ -172,4 +173,3 @@ def test_is_primei2_on_non_primes(n):
     assert result == expected
 
     # Cleanup - none necessary
-

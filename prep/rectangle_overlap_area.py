@@ -34,11 +34,12 @@ Example 4:
 Input: rec1 = [3, 3, 5, 5], rec2 = [1, 1, 4, 3.5]
 Output: 0.5
 """
+
 # Standard libraries
 from collections import namedtuple
 from typing import Union
 
-Rect = namedtuple("Rect", ("bl_x", "bl_y", "tr_x", "tr_y"))
+Rect = namedtuple('Rect', ('bl_x', 'bl_y', 'tr_x', 'tr_y'))
 
 
 def calc_overlap_area(rect1: Rect, rect2: Rect) -> Union[bool, int]:

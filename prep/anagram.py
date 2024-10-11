@@ -18,6 +18,7 @@ string_pairs = ("eleven plus two", "twelve plus one")
 %timeit anagram.is_anagram_count(*string_pairs)
 4.76 µs ± 105 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each)
 """
+
 from collections import Counter
 
 

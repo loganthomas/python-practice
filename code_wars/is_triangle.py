@@ -8,7 +8,6 @@ false in any other case.
 
 
 def is_triangle(a, b, c):
-
     # Sort to ensure largest side last
     a, b, c = sorted([a, b, c])
 

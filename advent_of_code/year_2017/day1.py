@@ -35,13 +35,14 @@ Answers:
     Part 1: 1251
     Part 2: 1244
 """
+
 from pathlib import Path
 
 
 # No kwargs on purpose (for pytest)
 def load_data():
-    input_file_path = Path(__file__).parent.joinpath("data/day1_puzzle.txt")
-    with open(input_file_path, "r") as input_file:
+    input_file_path = Path(__file__).parent.joinpath('data/day1_puzzle.txt')
+    with open(input_file_path, 'r') as input_file:
         data = input_file.readline().strip()
 
     return data
@@ -49,7 +50,7 @@ def load_data():
 
 # Part 1 Solution
 def captcha1(data):
-    """ Assumes data is a str """
+    """Assumes data is a str"""
     # Add first digit to end
     data = data + data[0]
 
@@ -59,7 +60,7 @@ def captcha1(data):
 
 # Part 2 Solution
 def captcha2(data):
-    """ Assumes data is a str """
+    """Assumes data is a str"""
     half_point = len(data) // 2
     first_half = data[:half_point]
     last_half = data[half_point:]

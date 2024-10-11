@@ -14,9 +14,9 @@ RANDOM_UNSORTED = list(np.random.randint(0, 100, 50))
 
 
 @pytest.mark.parametrize(
-    "nums",
+    'nums',
     [SIMPLE_UNSORTED, SIMPLE_SORTED, RANDOM_UNSORTED],
-    ids=["simple-unsorted", "simple-sorted", "random-unsorted"],
+    ids=['simple-unsorted', 'simple-sorted', 'random-unsorted'],
 )
 def test_selection_sort(nums: List[int]) -> None:
     # Setup - none necessary

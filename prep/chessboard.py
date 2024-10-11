@@ -70,15 +70,15 @@ n=1 m=1
 
 
 def print_board(n: int, m: int, verbose: bool = True) -> str:
-    out = ""
+    out = ''
     for i in range(n):
-        row = ""
+        row = ''
         for j in range(m):
             if (i + j) % 2 == 0:
-                row += "."
+                row += '.'
             else:
-                row += "*"
-        out += row + "\n"
+                row += '*'
+        out += row + '\n'
 
     if verbose:
         print(out)
