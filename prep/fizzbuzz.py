@@ -19,6 +19,7 @@ Notes
 %timeit fizzbuzz.fizzbuzz_hash(1000)
 376 µs ± 708 ns per loop (mean ± std. dev. of 7 runs, 1000 loops each)
 """
+
 from typing import List
 
 
@@ -27,11 +28,11 @@ def fizzbuzz_naive(n: int) -> List[str]:
 
     for num in range(1, n + 1):
         if num % 15 == 0:
-            out.append("FizzBuzz")
+            out.append('FizzBuzz')
         elif num % 3 == 0:
-            out.append("Fizz")
+            out.append('Fizz')
         elif num % 5 == 0:
-            out.append("Buzz")
+            out.append('Buzz')
         else:
             out.append(str(num))
 
@@ -42,12 +43,12 @@ def fizzbuzz_concat(n: int) -> List[str]:
     out = []
 
     for num in range(1, n + 1):
-        num_str = ""
+        num_str = ''
 
         if num % 3 == 0:
-            num_str += "Fizz"
+            num_str += 'Fizz'
         if num % 5 == 0:
-            num_str += "Buzz"
+            num_str += 'Buzz'
         if not num_str:
             num_str += str(num)
 
@@ -65,10 +66,10 @@ def fizzbuzz_hash(n: int) -> List[str]:
     out = []
 
     # conditions = {3: "Fizz", 5: "Buzz", 7: "Jazz"}
-    conditions = {3: "Fizz", 5: "Buzz"}
+    conditions = {3: 'Fizz', 5: 'Buzz'}
 
     for num in range(1, n + 1):
-        num_str = ""
+        num_str = ''
 
         for cond_key, cond_val in conditions.items():
             if num % cond_key == 0:

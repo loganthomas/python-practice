@@ -20,16 +20,17 @@ s = "ablewasiereisawelba"
 %timeit palindrome.is_palindrome_mid(s)
 1.36 µs ± 2.83 ns per loop (mean ± std. dev. of 7 runs, 1000000 loops each)
 """
+
 from typing import List
 
 
 def is_palindrome_slicing(s: str) -> bool:
-    """ Using string indexing. """
+    """Using string indexing."""
     return s == s[::-1]
 
 
 def is_palindrome_ij(s: str) -> bool:
-    """ Using an i and j index. """
+    """Using an i and j index."""
     i = 0
     j = len(s) - 1
 
@@ -43,7 +44,7 @@ def is_palindrome_ij(s: str) -> bool:
 
 
 def is_palindrome_mid(s: str) -> bool:
-    """ Using a midpoint. """
+    """Using a midpoint."""
     m = len(s) // 2
 
     for i in range(m):
@@ -72,17 +73,17 @@ def is_palindrome_mid(s: str) -> bool:
 
 
 def generate_palindrome_slicing(s: str) -> str:
-    return "".join([s, s[::-1]])
+    return ''.join([s, s[::-1]])
 
 
 def generate_palindrome_list(s: str) -> str:
-    out: List[str] = [""] * len(s) * 2
+    out: List[str] = [''] * len(s) * 2
 
     for i, x in enumerate(s):
         out[i] = x
         out[-(i + 1)] = x
 
-    return "".join(out)
+    return ''.join(out)
 
 
 def generate_palindrome_build(s: str) -> str:

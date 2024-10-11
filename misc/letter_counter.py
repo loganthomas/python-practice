@@ -30,12 +30,12 @@ def letter_counter(word, letter):
 
     count = sum([1 for let in word if let == letter])
 
-    print(f"{letter} occurs {count} time(s) in {word}")
+    print(f'{letter} occurs {count} time(s) in {word}')
 
     return count
 
 
-if __name__ == "__main__":
-    user_word = input("Please enter a word: ")
-    user_letter = input("Please enter a letter: ")
+if __name__ == '__main__':
+    user_word = input('Please enter a word: ')
+    user_letter = input('Please enter a letter: ')
     count = letter_counter(user_word, user_letter)

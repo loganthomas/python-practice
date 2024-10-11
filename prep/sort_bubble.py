@@ -45,7 +45,7 @@ l3 = [1,2,3,4,5]
 %timeit sort_bubble.bubble_sort_early_stop(l3)
 687 ns ± 6.06 ns per loop (mean ± std. dev. of 7 runs, 1000000 loops each)
 """
-# Standard libraries
+
 from typing import List
 
 
@@ -58,7 +58,7 @@ def bubble_sort_naive(nums: List[int]) -> List[int]:
 
 
 def bubble_sort(nums: List[int]) -> List[int]:
-    """ More efficient and removes extra looping steps. """
+    """More efficient and removes extra looping steps."""
     for i in range(len(nums) - 1):
         for j in range(len(nums) - i - 1):
             if nums[j] > nums[j + 1]:
@@ -67,7 +67,7 @@ def bubble_sort(nums: List[int]) -> List[int]:
 
 
 def bubble_sort_early_stop(nums: List[int]) -> List[int]:
-    """ More efficient as only performs tasks when unsorted. """
+    """More efficient as only performs tasks when unsorted."""
     has_swapped = True
     n_iter = 0
 

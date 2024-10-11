@@ -1,10 +1,7 @@
-# Local libraries
 from pathlib import Path
 
-# Third-party libraries
 import pytest
 
-# Local libraries
 from advent_of_code.year_2017 import day4
 
 
@@ -15,7 +12,7 @@ from advent_of_code.year_2017 import day4
         ('aa bb cc dd aa', False),
         ('aa bb cc dd aaa', True),
     ],
-    ids=['provided-valid1', 'provided-invalid', 'provided-valid2']
+    ids=['provided-valid1', 'provided-invalid', 'provided-valid2'],
 )
 def test_check_valid_passphrase(passphrase, expected):
     # Setup - none necessary
@@ -36,7 +33,7 @@ def test_check_valid_passphrase(passphrase, expected):
         (['aa aa', 'bb bb', 'cc cc'], 0),
         (['aa bb cc dd ee', 'aa bb cc dd aa', 'aa bb cc dd aaa'], 2),
     ],
-    ids=['simple-all-valid', 'simple-none-valid', 'simple-provided']
+    ids=['simple-all-valid', 'simple-none-valid', 'simple-provided'],
 )
 def test_count_valid_passphrases(data, expected):
     # Setup - none necessary
@@ -53,7 +50,7 @@ def test_count_valid_passphrases(data, expected):
 def test_day4_part1_answer():
     # Setup
     data_path = Path('advent_of_code/year_2017/data/day4_puzzle.txt')
-    expected  = 383
+    expected = 383
 
     with open(data_path) as f:
         data = f.readlines()
@@ -66,4 +63,3 @@ def test_day4_part1_answer():
     assert result == expected
 
     # Cleanup - none necessary
-

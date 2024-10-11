@@ -1,11 +1,8 @@
-# Standard libraries
 import random
 from pathlib import Path
 
-# Third-party libraries
 import pytest
 
-# Local libraries
 from advent_of_code.year_2019 import day3
 
 

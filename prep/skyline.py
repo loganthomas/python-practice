@@ -9,10 +9,10 @@ a cityscape. Write a program to output the skyline formed by these
 buildings.
 
 The geometric information of each building is represented by a triplet
-of integers [Li, Ri, Hi], wher Li and Ri are the x coordinates of the
+of integers [Li, Ri, Hi], where Li and Ri are the x coordinates of the
 left and right edge of the ith building and Hi is its height.
 
-The output is a list of "key points" in the formate [[x1, y1], ...].
+The output is a list of "key points" in the format [[x1, y1], ...].
 A key point is the left endpoint of a horizontal line segment.
 Note that the last key point, where the rightmost building ends,
 is merely used to mark the termination of the skyline, and always has
@@ -82,7 +82,7 @@ Output: [
 #
 # - For every x-coord we scan, if we find that there are "incoming"
 #   buildings (i.e. their left edge falls on x), we'll add those
-#   buidlings to the heap.
+#   buildings to the heap.
 # - Similarly, we'll pop buildings whose right edges we've crossed out
 #   of the heap, because these buildings are no longer relevant to our
 #   key point analysis
@@ -296,24 +296,19 @@ Output: [
 # FINAL RESULT: [(2, 10), (3, 15), (7, 12), (12, 0), (15, 10), (20, 8),
 #                (24, 0)]
 
-
-# Standard libraries
-import itertools
 import heapq
-from collections import namedtuple, defaultdict
+import itertools
+from collections import defaultdict, namedtuple
 from typing import List, Tuple
 
-# Third-party libraries
 import matplotlib.pyplot as plt
 from matplotlib.patches import Rectangle
 
-
-Building = namedtuple("Building", ("l", "r", "h"))
-Active = namedtuple("Active", ("val", "b"))
+Building = namedtuple('Building', ('l', 'r', 'h'))
+Active = namedtuple('Active', ('val', 'b'))
 
 
 def gather_skyline_keypoints(buildings: List[List[int]]) -> List[Tuple[int, int]]:
-
     ##########
     # Step 1 #
     ##########
@@ -333,8 +328,8 @@ def gather_skyline_keypoints(buildings: List[List[int]]) -> List[Tuple[int, int]
         # building index
         # [(2, {'left': [0]})] means x-coord 2 is left edge of building 0
         # [(7, {'right': [2]})] means x-coord 7 is right edge of building 2
-        scan[l]["left"].append(b_idx)
-        scan[r]["right"].append(b_idx)
+        scan[l]['left'].append(b_idx)
+        scan[r]['right'].append(b_idx)
 
     # Sort based on x-coords
     scan = sorted(scan.items())
@@ -349,7 +344,6 @@ def gather_skyline_keypoints(buildings: List[List[int]]) -> List[Tuple[int, int]
     res: List[Tuple[int, int]] = []
 
     for x, data in scan:
-
         # Remove candidate buildings once "exhausted"
         while active and active[0].b.r <= x:
             heapq.heappop(active)
@@ -358,7 +352,7 @@ def gather_skyline_keypoints(buildings: List[List[int]]) -> List[Tuple[int, int]
         # Append only left edges to active buildings
         # Active meaning not exhausted
         # (i.e. haven't reached buildings right edge yet)
-        for b_idx in data["left"]:
+        for b_idx in data['left']:
             heapq.heappush(active, Active(-B[b_idx].h, B[b_idx]))
         # Case 1:
         # Examining first x-coordinate, we simply add
@@ -384,10 +378,9 @@ def gather_skyline_keypoints(buildings: List[List[int]]) -> List[Tuple[int, int]
 # Plotting Utilities #
 ######################
 def plot_skyline(buildings: List[List[int]]):
-
     # Get color cycle so each building is different color
-    prop_cycle = plt.rcParams["axes.prop_cycle"]
-    colors = prop_cycle.by_key()["color"]
+    prop_cycle = plt.rcParams['axes.prop_cycle']
+    colors = prop_cycle.by_key()['color']
     colors_cycle = itertools.cycle(colors)
 
     fig = plt.figure()
@@ -401,7 +394,7 @@ def plot_skyline(buildings: List[List[int]]):
                 xy=(building[0], 0),
                 width=building[1] - building[0],
                 height=building[2],
-                edgecolor="black",
+                edgecolor='black',
                 facecolor=color,
                 fill=True,
                 zorder=zorder,
@@ -413,7 +406,7 @@ def plot_skyline(buildings: List[List[int]]):
     plt.xlim([0, max(b[1] for b in buildings) + 1])
     plt.ylim([0, max(b[2] for b in buildings) + 1])
 
-    plt.title("Skyline Plot")
+    plt.title('Skyline Plot')
 
     return fig
 
@@ -423,7 +416,7 @@ def plot_skyline_with_keypoints(buildings, keypoints):
     ax = fig.add_subplot()  # nrows=1, ncols=1, index=1
 
     for keypoint in keypoints:
-        ax.scatter(keypoint[0], keypoint[1], color="red")
+        ax.scatter(keypoint[0], keypoint[1], color='red')
 
     for building in buildings:
         ax.add_patch(
@@ -439,6 +432,6 @@ def plot_skyline_with_keypoints(buildings, keypoints):
     plt.xlim([0, max(b[1] for b in buildings) + 1])
     plt.ylim([0, max(b[2] for b in buildings) + 1])
 
-    plt.title(f"Skyline Plot with {len(keypoints)} Key Points")
+    plt.title(f'Skyline Plot with {len(keypoints)} Key Points')
 
     return fig

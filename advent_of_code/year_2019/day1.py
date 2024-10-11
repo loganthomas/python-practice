@@ -58,14 +58,15 @@ What is the sum of the fuel requirements for all of the modules on your spacecra
 into account the mass of the added fuel? (Calculate the fuel requirements for each module
 separately, then add them all up at the end.)
 """
+
 from pathlib import Path
+
 import numpy as np
 
-data_path = Path("data/day1_puzzle.txt")
+data_path = Path('data/day1_puzzle.txt')
 
 
 def calc_fuel(data):
-
     # Ensure input is a NumPy array
     if not isinstance(data, np.ndarray):
         data = np.array([data])
@@ -79,7 +80,6 @@ def calc_fuel(data):
 
 
 def part_1_answer(data_path=data_path):
-
     data = np.loadtxt(data_path)
 
     total_fuel = calc_fuel(data)
@@ -103,7 +103,6 @@ def calc_recursive_fuel(int_):
 
 
 def part_2_answer(data_path=data_path):
-
     data = np.loadtxt(data_path)
 
     total_fuel = int(sum(map(calc_recursive_fuel, data)))

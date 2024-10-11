@@ -11,7 +11,7 @@ elements are in place.
 Runtime: O(n**2)
 Memory: O(1)
 """
-# Standard libraries
+
 from typing import List
 
 

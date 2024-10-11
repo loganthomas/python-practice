@@ -9,22 +9,23 @@ Extras:
     - Keep track of how many guesses the user has taken, and when the
       game ends, print this out.
 """
+
 import random
 
-play = "Y"
-while play == "Y":
+play = 'Y'
+while play == 'Y':
     ans = random.randint(1, 9)
-    guess = ""
+    guess = ''
     cnt = 0
     while guess != ans:
-        guess = int(input("Make a guess: "))
+        guess = int(input('Make a guess: '))
         cnt += 1
 
         if guess - ans > 0:
-            print("too high")
+            print('too high')
         elif guess - ans < 0:
-            print("too low")
+            print('too low')
         else:
-            print("Correct!")
-            print(f"You guessed {cnt} time(s)")
+            print('Correct!')
+            print(f'You guessed {cnt} time(s)')
             play = input('To keep playing type "Y". To quit type "exit": ')

@@ -23,10 +23,9 @@ https://www.programiz.com/dsa/quick-sort
 
 # Function to partition the array on the basis of pivot element
 def partition(array, low, high):
-
     # Select the pivot element
     pivot = array[high]
-    print(f"low:{low} high:{high} pivot:{pivot}")
+    print(f'low:{low} high:{high} pivot:{pivot}')
     i = low - 1
 
     # Put the elements smaller than pivot on the left and greater
@@ -43,7 +42,6 @@ def partition(array, low, high):
 
 def quickSort(array, low, high):
     if low < high:
-
         # Select pivot position and put all the elements smaller
         # than pivot on left and greater than pivot on right
         pi = partition(array, low, high)
@@ -59,5 +57,5 @@ def quickSort(array, low, high):
 data = [8, 7, 2, 1, 0, 9, 6]
 size = len(data)
 quickSort(data, 0, size - 1)
-print("Sorted Array in Ascending Order:")
+print('Sorted Array in Ascending Order:')
 print(data)

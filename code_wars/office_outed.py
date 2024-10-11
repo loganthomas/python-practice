@@ -19,9 +19,5 @@ Note that your boss is in the room (boss), their score is worth double it's face
 
 
 def outed(meet, boss):
-    s = (
-        "Get Out Now!"
-        if (sum(meet.values()) + meet[boss]) / len(meet) <= 5
-        else "Nice Work Champ!"
-    )
+    s = 'Get Out Now!' if (sum(meet.values()) + meet[boss]) / len(meet) <= 5 else 'Nice Work Champ!'
     return s

@@ -32,12 +32,13 @@ Example 3:
 Input: rec1 = [0,0,1,1], rec2 = [2,2,3,3]
 Output: false
 """
-# Standard libraries
+
 from collections import namedtuple
+
 import matplotlib.pyplot as plt
 from matplotlib.patches import Rectangle
 
-Rect = namedtuple("Rect", ("bl_x", "bl_y", "tr_x", "tr_y"))
+Rect = namedtuple('Rect', ('bl_x', 'bl_y', 'tr_x', 'tr_y'))
 
 
 def is_overlap(rect1: Rect, rect2: Rect) -> bool:
@@ -62,7 +63,7 @@ def plot_rects(rect1: Rect, rect2: Rect) -> plt.Figure:
             xy=(rect1.bl_x, rect1.bl_y),
             width=rect1.tr_x - rect1.bl_x,
             height=rect1.tr_y - rect1.bl_y,
-            edgecolor="blue",
+            edgecolor='blue',
             fill=False,
         )
     )
@@ -72,7 +73,7 @@ def plot_rects(rect1: Rect, rect2: Rect) -> plt.Figure:
             xy=(rect2.bl_x, rect2.bl_y),
             width=rect2.tr_x - rect2.bl_x,
             height=rect2.tr_y - rect2.bl_y,
-            edgecolor="orange",
+            edgecolor='orange',
             fill=False,
         )
     )
@@ -81,6 +82,6 @@ def plot_rects(rect1: Rect, rect2: Rect) -> plt.Figure:
     plt.ylim([min(rect1.bl_y, rect2.bl_y) - 1, max(rect1.tr_y, rect2.tr_y) + 1])
 
     overlap = is_overlap(rect1, rect2)
-    plt.title(f"Rectangle Overlap: {overlap}")
+    plt.title(f'Rectangle Overlap: {overlap}')
 
     return fig

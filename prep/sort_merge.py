@@ -9,13 +9,12 @@ arrays. It is the "merge" part that does the heavy lifting.
 Runtime: O(n*log(n))
 Memory: Depends
 """
-# Standard libraries
+
 from typing import List
 
 
 def merge_sort(nums: List[int]) -> List[int]:
     if len(nums) > 1:
-
         # Find midpoint of array
         mid = len(nums) // 2
 

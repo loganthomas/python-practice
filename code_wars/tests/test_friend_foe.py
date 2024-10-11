@@ -17,7 +17,7 @@ def test_friend_4_ins():
     Test if friend returns correct values.
     """
     # Setup
-    people  = ['Ryan', 'Kieran', 'Jason', 'Yous']
+    people = ['Ryan', 'Kieran', 'Jason', 'Yous']
     friends = ['Ryan', 'Yous']
 
     # Exercise
@@ -34,7 +34,7 @@ def test_friend_3_ins():
     Test if friend returns correct values.
     """
     # Setup
-    people  = ['Ryan', 'Kieran', 'Mark']
+    people = ['Ryan', 'Kieran', 'Mark']
     friends = ['Ryan', 'Mark']
 
     # Exercise
@@ -51,7 +51,7 @@ def test_friend_1_ins():
     Test if friend returns correct values.
     """
     # Setup
-    people  = ['Loge']
+    people = ['Loge']
     friends = ['Loge']
 
     # Exercise
@@ -68,7 +68,7 @@ def test_friend_none():
     Test if friend returns no values.
     """
     # Setup
-    people  = ['Ry', 'K', 'M']
+    people = ['Ry', 'K', 'M']
     friends = []
 
     # Exercise
@@ -78,4 +78,3 @@ def test_friend_none():
     assert result == friends
 
     # Cleanup - none necessary
-

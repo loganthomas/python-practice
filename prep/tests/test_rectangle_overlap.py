@@ -1,16 +1,13 @@
-# Standard libraries
 import ast
-
-# Third-party libraries
-import pytest
 from typing import List
 
-# Local libraries
+import pytest
+
 from prep import rectangle_overlap
 
 
 @pytest.mark.parametrize(
-    "rec1, rec2, expected",
+    'rec1, rec2, expected',
     (
         [[0, 0, 2, 2], [1, 1, 3, 3], True],  # true-overlap1
         [[0, 0, 1, 1], [1, 0, 2, 1], False],  # false-overlap-touching
@@ -20,12 +17,12 @@ from prep import rectangle_overlap
         [[5, 0, 15, 5], [0, 0, 10, 10], True],  # true-overlap3
     ),
     ids=[
-        "true-overlap1",
-        "false-overlap-touching",
-        "false-no-overlap1",
-        "false-no-overlap2",
-        "true-overlap2",
-        "true-overlap3",
+        'true-overlap1',
+        'false-overlap-touching',
+        'false-no-overlap1',
+        'false-no-overlap2',
+        'true-overlap2',
+        'true-overlap3',
     ],
 )
 def test_is_overlap(rec1: List, rec2: List, expected: bool) -> None:
@@ -43,7 +40,7 @@ def test_is_overlap(rec1: List, rec2: List, expected: bool) -> None:
 
 
 @pytest.mark.parametrize(
-    "rec1, rec2, expected",
+    'rec1, rec2, expected',
     (
         [[0, 0, 2, 2], [1, 1, 3, 3], True],  # true-overlap1
         [[0, 0, 1, 1], [1, 0, 2, 1], False],  # false-overlap-touching
@@ -53,12 +50,12 @@ def test_is_overlap(rec1: List, rec2: List, expected: bool) -> None:
         [[5, 0, 15, 5], [0, 0, 10, 10], True],  # true-overlap3
     ),
     ids=[
-        "true-overlap1",
-        "false-overlap-touching",
-        "false-no-overlap1",
-        "false-no-overlap2",
-        "true-overlap2",
-        "true-overlap3",
+        'true-overlap1',
+        'false-overlap-touching',
+        'false-no-overlap1',
+        'false-no-overlap2',
+        'true-overlap2',
+        'true-overlap3',
     ],
 )
 @pytest.mark.mpl_image_compare()
@@ -80,9 +77,7 @@ def test_plot_rects(rec1: List, rec2: List, expected: bool) -> None:
 
     # Exercise
     fig = rectangle_overlap.plot_rects(rect1, rect2)
-    result = ast.literal_eval(
-        fig.axes[0].get_title().replace("Rectangle Overlap: ", "")
-    )
+    result = ast.literal_eval(fig.axes[0].get_title().replace('Rectangle Overlap: ', ''))
 
     # Verify
     assert result == expected

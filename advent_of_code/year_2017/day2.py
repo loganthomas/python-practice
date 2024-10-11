@@ -48,20 +48,22 @@ Answer:
     Part 1: 41887
     Part 2: 226
 """
-import numpy as np
+
 from pathlib import Path
+
+import numpy as np
 
 
 # No kwargs on purpose (for pytest)
 def load_data():
-    input_file_path = Path(__file__).parent.joinpath("data/day2_puzzle.txt")
+    input_file_path = Path(__file__).parent.joinpath('data/day2_puzzle.txt')
     data = np.loadtxt(input_file_path)
     return data
 
 
 # Part 1 Solution
 def captcha1(data):
-    """ Assumes data is np.array """
+    """Assumes data is np.array"""
     # Max of each row
     maxes = data.max(axis=1)
 
@@ -74,7 +76,7 @@ def captcha1(data):
 
 # Part 2 Solution
 def captcha2(data):
-    """ Assumes data is np.array """
+    """Assumes data is np.array"""
     out = []
     for row in data:
         sort = sorted(row, reverse=True)

@@ -7,11 +7,13 @@ is_isogram("Dermatoglyphics" ) == true
 is_isogram("aba" ) == false
 is_isogram("moOse" ) == false # -- ignore letter case
 """
+
 import pytest
+
 from code_wars import isograms
 
 
-@pytest.mark.parametrize('string', ['Dermatoglyphics', "isogram", ""])
+@pytest.mark.parametrize('string', ['Dermatoglyphics', 'isogram', ''])
 def test_isogram_for_true_isograms(string):
     # Setup
     expected = True
@@ -25,7 +27,7 @@ def test_isogram_for_true_isograms(string):
     # Cleanup - none necessary
 
 
-@pytest.mark.parametrize('string', ["aba", "moOse", "isIsogram"])
+@pytest.mark.parametrize('string', ['aba', 'moOse', 'isIsogram'])
 def test_isogram_for_false_isograms(string):
     # Setup
     expected = False
@@ -37,4 +39,3 @@ def test_isogram_for_false_isograms(string):
     assert result == expected
 
     # Cleanup - none necessary
-

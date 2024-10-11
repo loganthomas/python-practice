@@ -16,7 +16,7 @@ def odd_even():
         print statement whether provided number is odd or even.
     """
     # Ask user for number
-    number = input("Please enter a number: ")
+    number = input('Please enter a number: ')
 
     # Error handling
     try:
@@ -24,13 +24,13 @@ def odd_even():
 
         # Determine odd or even
         if int(num) % 2 == 0:
-            print("{} is even".format(number))
+            print('{} is even'.format(number))
         else:
-            print("{} is odd".format(number))
+            print('{} is odd'.format(number))
 
     except ValueError as err:
-        print("Value Error: {}".format(err))
+        print('Value Error: {}'.format(err))
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     odd_even()

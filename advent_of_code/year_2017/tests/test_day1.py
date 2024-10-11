@@ -1,23 +1,23 @@
-from advent_of_code.year_2017 import day1
 import pytest
 
+from advent_of_code.year_2017 import day1
 
 # Post solution tests (given after submission)
 sol_1_tests = [
-    ('1122'     , 3),
-    ('1111'     , 4),
-    ('1234'     , 0),
-    ('91212129' , 9),
+    ('1122', 3),
+    ('1111', 4),
+    ('1234', 0),
+    ('91212129', 9),
 ]
 
 
 # Solution 2 Testing
 sol_2_tests = [
-    ('1212'     , 6),
-    ('1221'     , 0),
-    ('123425'   , 4),
-    ('123123'   , 12),
-    ('12131415' , 4),
+    ('1212', 6),
+    ('1221', 0),
+    ('123425', 4),
+    ('123123', 12),
+    ('12131415', 4),
 ]
 
 
@@ -89,4 +89,3 @@ def test_captcha2_on_post_submission_tests(data, expected):
     assert result == expected
 
     # Cleanup -  none necessary
-
