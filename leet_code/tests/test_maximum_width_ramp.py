@@ -1,7 +1,5 @@
-# Standard libraries
 import unittest
 
-# Local libraries
 from leet_code import maximum_width_ramp
 
 
@@ -51,38 +49,38 @@ class TestMaximumWidthRamp(unittest.TestCase):
             ([1, 0], 0),
         ]
 
-    def test_Solution1(self):
+    def test_max_width_ramp_1(self):
         for nums, expected in self.cases:
             with self.subTest(nums=nums, expected=expected):
-                result = maximum_width_ramp.Solution1().maxWidthRamp(nums)
+                result = maximum_width_ramp.max_width_ramp_1(nums)
                 self.assertEqual(result, expected)
 
-    def test_Solution2(self):
+    def test_max_width_ramp_2(self):
         for nums, expected in self.cases:
             with self.subTest(nums=nums, expected=expected):
-                result = maximum_width_ramp.Solution2().maxWidthRamp(nums)
+                result = maximum_width_ramp.max_width_ramp_2(nums)
                 self.assertEqual(result, expected)
 
-    def test_Solution3(self):
+    def test_max_width_ramp_3(self):
         for nums, expected in self.cases:
             with self.subTest(nums=nums, expected=expected):
-                result = maximum_width_ramp.Solution3().maxWidthRamp(nums)
+                result = maximum_width_ramp.max_width_ramp_3(nums)
                 self.assertEqual(result, expected)
 
-    def test_SolutionA(self):
+    def test_max_width_ramp_a(self):
         for nums, expected in self.cases:
             with self.subTest(nums=nums, expected=expected):
-                result = maximum_width_ramp.SolutionA().maxWidthRamp(nums)
+                result = maximum_width_ramp.max_width_ramp_a(nums)
                 self.assertEqual(result, expected)
 
-    def test_SolutionB(self):
+    def test_max_width_ramp_b(self):
         for nums, expected in self.cases:
             with self.subTest(nums=nums, expected=expected):
-                result = maximum_width_ramp.SolutionB().maxWidthRamp(nums)
+                result = maximum_width_ramp.max_width_ramp_b(nums)
                 self.assertEqual(result, expected)
 
-    def test_SolutionC(self):
+    def test_max_width_ramp_c(self):
         for nums, expected in self.cases:
             with self.subTest(nums=nums, expected=expected):
-                result = maximum_width_ramp.SolutionC().maxWidthRamp(nums)
+                result = maximum_width_ramp.max_width_ramp_c(nums)
                 self.assertEqual(result, expected)

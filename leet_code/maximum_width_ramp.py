@@ -1,8 +1,14 @@
 """
 https://leetcode.com/problems/maximum-width-ramp/description/?envType=daily-question&envId=2024-10-10
-A ramp in an integer array nums is a pair (i, j) for which i < j and nums[i] <= nums[j]. The width of such a ramp is j - i.
 
-Given an integer array nums, return the maximum width of a ramp in nums. If there is no ramp in nums, return 0.
+A ramp in an integer array nums is a pair (i, j)
+for which i < j and nums[i] <= nums[j].
+
+The width of such a ramp is j - i.
+
+Given an integer array nums
+return the maximum width of a ramp in nums.
+If there is no ramp in nums, return 0.
 
 
 
@@ -24,34 +30,29 @@ Constraints:
 0 <= nums[i] <= 5 * 104
 """
 
-# Standard libraries
-from typing import List
-
 
 # Attempt 1
-class Solution1:
-    def maxWidthRamp(self, nums: List[int]) -> int:
-        max_ = 0
-        for i in range(len(nums)):
-            for j in range(len(nums)):
-                if (i < j) and nums[i] <= nums[j]:
-                    w = j - i
-                    max_ = w if w > max_ else max_
-        return max_
+def max_width_ramp_1(nums):
+    max_ = 0
+    for i in range(len(nums)):
+        for j in range(len(nums)):
+            if (i < j) and nums[i] <= nums[j]:
+                w = j - i
+                max_ = w if w > max_ else max_
+    return max_
 
 
 # Attempt 2
-class Solution2:
-    def maxWidthRamp(self, nums: List[int]) -> int:
-        max_ = 0
-        for i in range(len(nums)):
-            for j in range(i + 1, len(nums)):
-                if (i < j) and nums[i] <= nums[j]:
-                    w = j - i
-                    max_ = w if w > max_ else max_
-        return max_
-        # above work but indexing can be slow...
-        # what about just the values and back out the index?
+def max_width_ramp_2(nums):
+    max_ = 0
+    for i in range(len(nums)):
+        for j in range(i + 1, len(nums)):
+            if (i < j) and nums[i] <= nums[j]:
+                w = j - i
+                max_ = w if w > max_ else max_
+    return max_
+    # above work but indexing can be slow...
+    # what about just the values and back out the index?
 
 
 # Attempt 3
@@ -61,17 +62,16 @@ def get_diff(idx, val, space):
     return out
 
 
-class Solution3:
-    def maxWidthRamp(self, nums: List[int]) -> int:
-        max_ = 0
-        for idx in range(len(nums)):
-            val = nums[idx]
-            space = nums[idx + 1 :]
-            diff = get_diff(idx, val, space)
-            max_ = diff if diff > max_ else max_
-        return max_
-        # print(val, space, diff)
-        # print(val, space)
+def max_width_ramp_3(nums):
+    max_ = 0
+    for idx in range(len(nums)):
+        val = nums[idx]
+        space = nums[idx + 1 :]
+        diff = get_diff(idx, val, space)
+        max_ = diff if diff > max_ else max_
+    return max_
+    # print(val, space, diff)
+    # print(val, space)
 
 
 # print(get_diff(0, 6, [0, 8, 2, 1, 5]))
@@ -88,50 +88,45 @@ class Solution3:
 # # 5 []
 
 
-# Solution 1
-class SolutionA:
-    def maxWidthRamp(self, nums: List[int]) -> int:
-        n = len(nums)
-        stack = []
+# Solution A
+def max_width_ramp_a(nums):
+    n = len(nums)
+    stack = []
 
-        # Step 1: Build a decreasing stack of indices
-        for i in range(n):
-            if not stack or nums[stack[-1]] > nums[i]:
-                stack.append(i)
-                print(f'{stack=}')
+    # Step 1: Build a decreasing stack of indices
+    for i in range(n):
+        if not stack or nums[stack[-1]] > nums[i]:
+            stack.append(i)
+            print(f'{stack=}')
 
-        maxWidth = 0
+    maxWidth = 0
 
-        # Step 2: Traverse from the end and find maximum width ramp
-        for j in range(n - 1, -1, -1):
-            print(f'{j=}')
-            while stack and nums[stack[-1]] <= nums[j]:
-                maxWidth = max(maxWidth, j - stack.pop())
-                print(f'{maxWidth=}')
+    # Step 2: Traverse from the end and find maximum width ramp
+    for j in range(n - 1, -1, -1):
+        print(f'{j=}')
+        while stack and nums[stack[-1]] <= nums[j]:
+            maxWidth = max(maxWidth, j - stack.pop())
+            print(f'{maxWidth=}')
 
-        return maxWidth
+    return maxWidth
 
 
-# Standard libraries
-# Solution 2
+# Solution B
 from itertools import accumulate
 from operator import sub
 
 
-class SolutionB:
-    def maxWidthRamp(self, nums: List[int]) -> int:
-        sorted_indices = [x[0] for x in sorted(enumerate(nums), key=lambda x: x[1])]
-        min_sorted_indices = list(accumulate(sorted_indices, min))
-        return max(map(sub, sorted_indices, min_sorted_indices))
+def max_width_ramp_b(nums):
+    sorted_indices = [x[0] for x in sorted(enumerate(nums), key=lambda x: x[1])]
+    min_sorted_indices = list(accumulate(sorted_indices, min))
+    return max(map(sub, sorted_indices, min_sorted_indices))
 
 
-# Third-party libraries
-# Solution 3
+# Solution C
 import numpy as np
 
 
-class SolutionC:
-    def maxWidthRamp(self, nums: List[int]) -> int:
-        sorted_indices = np.argsort(nums, kind='mergesort')
-        cum_min_indices = np.minimum.accumulate(sorted_indices)
-        return (sorted_indices - cum_min_indices).max()
+def max_width_ramp_c(nums):
+    sorted_indices = np.argsort(nums, kind='mergesort')
+    cum_min_indices = np.minimum.accumulate(sorted_indices)
+    return (sorted_indices - cum_min_indices).max()
