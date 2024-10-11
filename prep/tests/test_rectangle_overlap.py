@@ -1,11 +1,8 @@
-# Standard libraries
 import ast
 from typing import List
 
-# Third-party libraries
 import pytest
 
-# Local libraries
 from prep import rectangle_overlap
 
 

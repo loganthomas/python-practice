@@ -1,12 +1,8 @@
-# Standard Libraries
 import itertools
 
 import pytest
-
-# Third-party libraries
 from colorama import Fore, Style
 
-# Local libraries
 from prep import blackjack
 
 

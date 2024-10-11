@@ -1,7 +1,5 @@
-# Third-party libraries
 import pytest
 
-# Local libraries
 from prep import palindrome
 
 PALINDROMES = [

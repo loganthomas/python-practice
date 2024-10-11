@@ -17,7 +17,6 @@ Output:
     "2,3",1,4
 """
 
-# Standard libraries
 import csv
 import io
 import sys

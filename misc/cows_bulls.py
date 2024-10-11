@@ -26,7 +26,6 @@ Until the user guesses the number.
 # Python 2 compatibility imports
 from __future__ import absolute_import, division, print_function
 
-# Standard Libraries
 from random import randint
 
 

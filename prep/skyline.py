@@ -297,13 +297,10 @@ Output: [
 #                (24, 0)]
 
 import heapq
-
-# Standard libraries
 import itertools
 from collections import defaultdict, namedtuple
 from typing import List, Tuple
 
-# Third-party libraries
 import matplotlib.pyplot as plt
 from matplotlib.patches import Rectangle
 

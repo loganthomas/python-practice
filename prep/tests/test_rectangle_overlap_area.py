@@ -1,9 +1,7 @@
-# Third-party libraries
 from typing import List, Union
 
 import pytest
 
-# Local libraries
 from prep import rectangle_overlap_area
 
 

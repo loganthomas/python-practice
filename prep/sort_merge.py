@@ -10,7 +10,6 @@ Runtime: O(n*log(n))
 Memory: Depends
 """
 
-# Standard libraries
 from typing import List
 
 

@@ -21,7 +21,6 @@ Output:
 }
 """
 
-# Standard libraries
 from collections import defaultdict, namedtuple
 from typing import DefaultDict, List
 

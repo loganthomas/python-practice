@@ -1,9 +1,7 @@
-# Third-party libraries
 from typing import Tuple
 
 import pytest
 
-# Local libraries
 from prep import anagram
 
 ANAGRAMS = [

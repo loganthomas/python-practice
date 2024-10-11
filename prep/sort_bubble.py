@@ -46,7 +46,6 @@ l3 = [1,2,3,4,5]
 687 ns ± 6.06 ns per loop (mean ± std. dev. of 7 runs, 1000000 loops each)
 """
 
-# Standard libraries
 from typing import List
 
 

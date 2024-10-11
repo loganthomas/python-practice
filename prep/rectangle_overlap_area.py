@@ -35,7 +35,6 @@ Input: rec1 = [3, 3, 5, 5], rec2 = [1, 1, 4, 3.5]
 Output: 0.5
 """
 
-# Standard libraries
 from collections import namedtuple
 from typing import Union
 

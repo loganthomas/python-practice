@@ -12,7 +12,6 @@ Notes
 -----
 """
 
-# Standard libraries
 from typing import Tuple
 
 

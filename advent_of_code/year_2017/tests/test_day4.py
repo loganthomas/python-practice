@@ -1,10 +1,7 @@
-# Local libraries
 from pathlib import Path
 
-# Third-party libraries
 import pytest
 
-# Local libraries
 from advent_of_code.year_2017 import day4
 
 

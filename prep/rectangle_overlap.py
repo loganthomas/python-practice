@@ -33,7 +33,6 @@ Input: rec1 = [0,0,1,1], rec2 = [2,2,3,3]
 Output: false
 """
 
-# Standard libraries
 from collections import namedtuple
 
 import matplotlib.pyplot as plt

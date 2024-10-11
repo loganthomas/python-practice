@@ -1,11 +1,8 @@
-# Standard libraries
 from typing import List
 
-# Third-party libraries
 import numpy as np
 import pytest
 
-# Local libraries
 from prep import sort_selection
 
 SIMPLE_UNSORTED = [5, 4, 3, 2, 1]
