@@ -43,7 +43,7 @@ import sys
 
 
 def swap_cols():
-    reader = csv.reader(sys.stdin, quotechar='"')
+    reader = csv.reader(sys.stdin)
     writer = csv.writer(sys.stdout)
 
     for row in reader:
