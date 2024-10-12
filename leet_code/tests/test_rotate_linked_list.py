@@ -4,7 +4,7 @@ from collections import deque
 from leet_code import rotate_linked_list
 
 
-class TestMaximumWidthRamp(unittest.TestCase):
+class TestRotateLinkedList(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.cases = [([0, 1, 2], 4, [2, 0, 1]), ([1, 2, 3, 4, 5], 2, [4, 5, 1, 2, 3])]
