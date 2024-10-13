@@ -1,5 +1,10 @@
 """
 Practice manually implementing a linked list.
+
+References
+----------
+https://builtin.com/data-science/python-linked-list
+https://realpython.com/linked-lists-python/
 """
 
 from collections import deque
