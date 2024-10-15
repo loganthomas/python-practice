@@ -8,6 +8,7 @@ https://realpython.com/linked-lists-python/
 """
 
 from collections import deque
+from functools import cached_property
 
 
 class Node:
@@ -31,25 +32,25 @@ class LinkedList:
                 node.next = Node(element)
                 node = node.next
 
-    def __repr__(self):
-        return f'{self.head}'
-
     def __iter__(self):
         node = self.head
         while node:
             yield node
             node = node.next
 
+    def __repr__(self):
+        return f'{self.head}'
+
     def __str__(self):
         return ' -> '.join([str(n.value) for n in self])
 
-    @property
+    @cached_property
     def size(self):
         cnt = 0
         node = self.head
         while node:
-            node = node.next
             cnt += 1
+            node = node.next
         return cnt
 
 
