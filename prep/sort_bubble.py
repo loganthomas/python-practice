@@ -80,3 +80,18 @@ def bubble_sort_early_stop(nums: List[int]) -> List[int]:
         n_iter += 1
 
     return nums
+
+
+def bubble_sort_revised(nums):
+    n = len(nums)
+    nums = nums.copy()
+
+    for i in range(n):
+        swapped = False
+        for j in range(n - i - 1):
+            if nums[j] > nums[j + 1]:
+                nums[j], nums[j + 1] = nums[j + 1], nums[j]
+                swapped = True
+        if not swapped:
+            break
+    return nums
